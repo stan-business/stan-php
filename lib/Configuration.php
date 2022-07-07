@@ -5,8 +5,8 @@
  *
  * @category Class
  * @package  Stan
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @author Brightweb
+ * @link https://stan-business.fr
  */
 
 /**
@@ -33,8 +33,8 @@ namespace Stan;
  *
  * @category Class
  * @package  Stan
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @author Brightweb
+ * @link https://stan-business.fr
  */
 class Configuration
 {

@@ -5,8 +5,8 @@
  *
  * @category Class
  * @package  Stan
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @author Brightweb
+ * @link https://stan-business.fr
  */
 
 /**
@@ -44,8 +44,8 @@ use Stan\ObjectSerializer;
  *
  * @category Class
  * @package  Stan
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @author Brightweb
+ * @link https://stan-business.fr
  */
 class UserApi
 {

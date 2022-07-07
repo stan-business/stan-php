@@ -6,8 +6,8 @@
  *
  * @category Class
  * @package  Stan\Model
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @author Brightweb
+ * @link https://stan-business.fr
  */
 
 /**
