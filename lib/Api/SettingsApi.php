@@ -284,7 +284,7 @@ class SettingsApi
         // for model (json/xml)
         if (isset($api_setting_request_body)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($api_setting_request_body));
+                $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($api_setting_request_body));
             } else {
                 $httpBody = $api_setting_request_body;
             }
@@ -304,7 +304,7 @@ class SettingsApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = json_encode($formParams);
 
             } else {
                 // for HTTP post (form)
