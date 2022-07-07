@@ -22,11 +22,17 @@ Create an access token to request user's infos
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure HTTP basic authorization: stan_basic_auth
+$config = Stan\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_API_CLIENT_ID')
+              ->setPassword('YOUR_API_CLIENT_SECRET');
+
 
 $apiInstance = new Stan\Api\ConnectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $connect_access_token_request_body = new \Stan\Model\ConnectAccessTokenRequestBody(); // \Stan\Model\ConnectAccessTokenRequestBody
 
@@ -50,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[stan_basic_auth](../../README.md#stan_basic_auth)
 
 ### HTTP request headers
 

@@ -86,11 +86,17 @@ Get a payment with an UUID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure HTTP basic authorization: stan_basic_auth
+$config = Stan\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_API_CLIENT_ID')
+              ->setPassword('YOUR_API_CLIENT_SECRET');
+
 
 $apiInstance = new Stan\Api\PaymentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $payment_id = 'payment_id_example'; // string | UID of the payment
 
@@ -114,7 +120,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[stan_basic_auth](../../README.md#stan_basic_auth)
 
 ### HTTP request headers
 
@@ -140,11 +146,17 @@ Get all payments
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure HTTP basic authorization: stan_basic_auth
+$config = Stan\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_API_CLIENT_ID')
+              ->setPassword('YOUR_API_CLIENT_SECRET');
+
 
 $apiInstance = new Stan\Api\PaymentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 
 try {
@@ -165,7 +177,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[stan_basic_auth](../../README.md#stan_basic_auth)
 
 ### HTTP request headers
 
