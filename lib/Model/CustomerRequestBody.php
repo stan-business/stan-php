@@ -61,6 +61,7 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'name' => 'string',
         'email' => 'string',
+        'address' => '\Stan\Model\Address',
         'phone_number' => 'string'
     ];
 
@@ -74,6 +75,7 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPIFormats = [
         'name' => null,
         'email' => 'email',
+        'address' => null,
         'phone_number' => null
     ];
 
@@ -106,6 +108,7 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $attributeMap = [
         'name' => 'name',
         'email' => 'email',
+        'address' => 'address',
         'phone_number' => 'phone_number'
     ];
 
@@ -117,6 +120,7 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $setters = [
         'name' => 'setName',
         'email' => 'setEmail',
+        'address' => 'setAddress',
         'phone_number' => 'setPhoneNumber'
     ];
 
@@ -128,6 +132,7 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $getters = [
         'name' => 'getName',
         'email' => 'getEmail',
+        'address' => 'getAddress',
         'phone_number' => 'getPhoneNumber'
     ];
 
@@ -190,6 +195,7 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $this->container['name'] = $data['name'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
+        $this->container['address'] = $data['address'] ?? null;
         $this->container['phone_number'] = $data['phone_number'] ?? null;
     }
 
@@ -202,6 +208,15 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -220,7 +235,7 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -230,7 +245,7 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets name
      *
-     * @param string|null $name Customer fullname
+     * @param string $name Customer fullname
      *
      * @return self
      */
@@ -244,7 +259,7 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets email
      *
-     * @return string|null
+     * @return string
      */
     public function getEmail()
     {
@@ -254,13 +269,37 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets email
      *
-     * @param string|null $email email
+     * @param string $email email
      *
      * @return self
      */
     public function setEmail($email)
     {
         $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets address
+     *
+     * @return \Stan\Model\Address
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     *
+     * @param \Stan\Model\Address $address address
+     *
+     * @return self
+     */
+    public function setAddress($address)
+    {
+        $this->container['address'] = $address;
 
         return $this;
     }
@@ -376,5 +415,3 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-
