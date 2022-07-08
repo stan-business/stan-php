@@ -65,18 +65,18 @@ class Configuration
     protected $accessToken = '';
 
     /**
-     * Username for HTTP basic authentication
+     * Client id for HTTP basic authentication
      *
      * @var string
      */
-    protected $username = '';
+    protected $clientId = '';
 
     /**
-     * Password for HTTP basic authentication
+     * Client secret for HTTP basic authentication
      *
      * @var string
      */
-    protected $password = '';
+    protected $clientSecret = '';
 
     /**
      * The host
@@ -197,49 +197,49 @@ class Configuration
     }
 
     /**
-     * Sets the username for HTTP basic authentication
+     * Sets the client id for HTTP basic authentication
      *
-     * @param string $username Username for HTTP basic authentication
+     * @param string $clientId Client id for HTTP basic authentication
      *
      * @return $this
      */
-    public function setUsername($username)
+    public function setClientId($clientId)
     {
-        $this->username = $username;
+        $this->clientId = $clientId;
         return $this;
     }
 
     /**
-     * Gets the username for HTTP basic authentication
+     * Gets the client id for HTTP basic authentication
      *
-     * @return string Username for HTTP basic authentication
+     * @return string Client id for HTTP basic authentication
      */
-    public function getUsername()
+    public function getClientId()
     {
-        return $this->username;
+        return $this->clientId;
     }
 
     /**
-     * Sets the password for HTTP basic authentication
+     * Sets the client secret for HTTP basic authentication
      *
-     * @param string $password Password for HTTP basic authentication
+     * @param string $clientSecret Client secret for HTTP basic authentication
      *
      * @return $this
      */
-    public function setPassword($password)
+    public function setClientSecret($clientSecret)
     {
-        $this->password = $password;
+        $this->clientSecret = $clientSecret;
         return $this;
     }
 
     /**
-     * Gets the password for HTTP basic authentication
+     * Gets the client secret for HTTP basic authentication
      *
-     * @return string Password for HTTP basic authentication
+     * @return string Client secret for HTTP basic authentication
      */
-    public function getPassword()
+    public function getClientSecret()
     {
-        return $this->password;
+        return $this->clientSecret;
     }
 
     /**

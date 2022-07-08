@@ -4,13 +4,13 @@ All URIs are relative to https://api.stan-app.fr/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createCustomer()**](CustomerApi.md#createCustomer) | **POST** /customers | Create a new customer
+[**create()**](CustomerApi.md#create) | **POST** /customers | Create a new customer
 
 
-## `createCustomer()`
+## `create()`
 
 ```php
-createCustomer($customer_request_body): \Stan\Model\Customer
+create($customer_request_body): \Stan\Model\Customer
 ```
 
 Create a new customer
@@ -37,10 +37,10 @@ $apiInstance = new Stan\Api\CustomerApi(
 $customer_request_body = new \Stan\Model\CustomerRequestBody(); // \Stan\Model\CustomerRequestBody
 
 try {
-    $result = $apiInstance->createCustomer($customer_request_body);
+    $result = $apiInstance->create($customer_request_body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->createCustomer: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->create: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * ConnectApi
+ * ApiSettings
  * PHP version 7.3
  *
  * @category Class
@@ -30,7 +30,6 @@ namespace Stan\Api;
 use Stan\ApiException;
 use Stan\Configuration;
 use Stan\HeaderSelector;
-use Stan\ObjectSerializer;
 
 use Http\Client\Common\Plugin\ErrorPlugin;
 use Http\Client\Common\PluginClient;
@@ -45,32 +44,32 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
 
+
 /**
- * ConnectApi Class Doc Comment
+ * ApiSettings Class Doc Comment
  *
  * @category Class
  * @package  Stan
  * @author Brightweb
  * @link https://stan-business.fr
  */
-class ConnectApi extends StanResource
+class ApiSettingsApi extends StanResource
 {
 
     /**
-     * Operation createConnectAccessToken
+     * Operation UpdateApiSettings
      *
-     * Create an access token to request user&#39;s infos
+     * Updates API settings
      *
-     * @param  \Stan\Model\ConnectAccessTokenRequestBody $connect_access_token_request_body connect_access_token_request_body
+     * @param  \Stan\Model\ApiSettingsRequestBody $api_settings_request_body api_settings_request_body
      *
      * @throws \Stan\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Stan\Model\ConnectAccessToken
+     * @return void
      */
-    public function createConnectAccessToken($connect_access_token_request_body)
+    public function UpdateApiSettings($api_settings_request_body)
     {
         $content = $this->client
-            ->sendRequest('POST', '/oauth/token', null, $connect_access_token_request_body);
-        return ObjectSerializer::deserialize($content, '\Stan\Model\ConnectAccessToken', []);
+            ->sendRequest('PUT', '/apis', null, $api_settings_request_body);
     }
 }

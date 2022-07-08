@@ -27,10 +27,15 @@
 
 namespace Stan\Test\Api;
 
-use \Stan\Configuration;
-use \Stan\ApiException;
-use \Stan\ObjectSerializer;
-use PHPUnit\Framework\TestCase;
+use Stan\Api\PaymentApi;
+use Stan\Model\Payment;
+use Stan\Model\PaymentRequestBody;
+
+use Stan\Configuration;
+use Stan\ApiException;
+use Stan\ObjectSerializer;
+use Stan\Api\StanClient;
+use Stan\Test\Api\TestCase;
 
 /**
  * PaymentApiTest Class Doc Comment
@@ -44,55 +49,39 @@ class PaymentApiTest extends TestCase
 {
 
     /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
-
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
-
-    /**
      * Test case for createPaymentInvoice
      *
      * Create a payment.
      *
      */
-    public function testCreatePaymentInvoice()
+    public function testCreate()
     {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
+        $this->client
+            ->method('sendRequest')
+            ->willReturn('{"amount": 123}');
+
+        $paymentApi = new PaymentApi($this->client);
+        $payment = $paymentApi->create(new PaymentRequestBody());
+        $this->assertInstanceOf(Payment::class, $payment);
+        $this->assertSame(123, $payment->getAmount());
     }
 
     /**
-     * Test case for findPaymentsByID
+     * Test case for getPayment
      *
      * Get a payment.
      *
      */
-    public function testFindPaymentsByID()
+    public function testGetPayment()
     {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
+        $this->client
+            ->method('sendRequest')
+            ->willReturn('{"id": "payment_id"}');
+
+        $paymentApi = new PaymentApi($this->client);
+        $payment = $paymentApi->getPayment("");
+        $this->assertInstanceOf(Payment::class, $payment);
+        $this->assertSame("payment_id", $payment->getId());
     }
 
     /**
@@ -103,7 +92,14 @@ class PaymentApiTest extends TestCase
      */
     public function testGetPayments()
     {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
+        $this->client
+            ->method('sendRequest')
+            ->willReturn('[{"id": "payment_id"}]');
+
+        $paymentApi = new PaymentApi($this->client);
+        $payments = $paymentApi->getPayments();
+
+        $this->assertFalse(empty($payments));
+        $this->assertSame("payment_id", $payments[0]->getId());
     }
 }

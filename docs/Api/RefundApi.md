@@ -4,15 +4,15 @@ All URIs are relative to https://api.stan-app.fr/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createRefund()**](RefundApi.md#createRefund) | **POST** /refunds | Create a refund
-[**fundRefundByID()**](RefundApi.md#fundRefundByID) | **GET** /refunds/{refund_id} | Get a refund
+[**create()**](RefundApi.md#create) | **POST** /refunds | Create a refund
+[**getRefund()**](RefundApi.md#getRefund) | **GET** /refunds/{refund_id} | Get a refund
 [**getRefunds()**](RefundApi.md#getRefunds) | **GET** /refunds | Get all refunds
 
 
-## `createRefund()`
+## `create()`
 
 ```php
-createRefund($refund_request_body): \Stan\Model\Refund
+create($refund_request_body): \Stan\Model\Refund
 ```
 
 Create a refund
@@ -39,10 +39,10 @@ $apiInstance = new Stan\Api\RefundApi(
 $refund_request_body = new \Stan\Model\RefundRequestBody(); // \Stan\Model\RefundRequestBody
 
 try {
-    $result = $apiInstance->createRefund($refund_request_body);
+    $result = $apiInstance->create($refund_request_body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RefundApi->createRefund: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RefundApi->create: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -69,10 +69,10 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `fundRefundByID()`
+## `getRefund()`
 
 ```php
-fundRefundByID($refund_id): \Stan\Model\Refund
+getRefund($refund_id): \Stan\Model\Refund
 ```
 
 Get a refund
@@ -101,10 +101,10 @@ $apiInstance = new Stan\Api\RefundApi(
 $refund_id = 'refund_id_example'; // string | UID of the refund
 
 try {
-    $result = $apiInstance->fundRefundByID($refund_id);
+    $result = $apiInstance->getRefund($refund_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RefundApi->fundRefundByID: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RefundApi->getRefund: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

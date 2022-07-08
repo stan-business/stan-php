@@ -1,16 +1,16 @@
-# Stan\SettingsApi
+# Stan\ApiSettings
 
 All URIs are relative to https://api.stan-app.fr/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**updateAPISetting()**](SettingsApi.md#updateAPISetting) | **PUT** /apis | Updates API settings
+[**UpdateApiSettings()**](ApiSettings.md#UpdateApiSettings) | **PUT** /apis | Updates API settings
 
 
-## `updateAPISetting()`
+## `UpdateApiSettings()`
 
 ```php
-updateAPISetting($api_setting_request_body)
+UpdateApiSettings($api_settings_request_body)
 ```
 
 Updates API settings
@@ -28,18 +28,18 @@ $config = Stan\Configuration::getDefaultConfiguration()
               ->setPassword('YOUR_API_CLIENT_SECRET');
 
 
-$apiInstance = new Stan\Api\SettingsApi(
+$apiInstance = new Stan\Api\ApiSettings(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$api_setting_request_body = new \Stan\Model\APISettingRequestBody(); // \Stan\Model\APISettingRequestBody
+$api_settings_request_body = new \Stan\Model\ApiSettingsRequestBody(); // \Stan\Model\ApiSettingsRequestBody
 
 try {
-    $apiInstance->updateAPISetting($api_setting_request_body);
+    $apiInstance->UpdateApiSettings($api_settings_request_body);
 } catch (Exception $e) {
-    echo 'Exception when calling SettingsApi->updateAPISetting: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ApiSettings->UpdateApiSettings: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -47,7 +47,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_setting_request_body** | [**\Stan\Model\APISettingRequestBody**](../Model/APISettingRequestBody.md)|  | [optional]
+ **api_settings_request_body** | [**\Stan\Model\ApiSettingsRequestBody**](../Model/ApiSettingsRequestBody.md)|  | [optional]
 
 ### Return type
 

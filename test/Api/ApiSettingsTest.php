@@ -1,6 +1,6 @@
 <?php
 /**
- * ConnectApiTest
+ * ApiSettingsTest
  * PHP version 7.3
  *
  * @category Class
@@ -27,9 +27,8 @@
 
 namespace Stan\Test\Api;
 
-use Stan\Api\ConnectApi;
-use Stan\Model\ConnectAccessToken;
-use Stan\Model\ConnectAccessTokenRequestBody;
+use Stan\Api\ApiSettingsApi;
+use Stan\Model\ApiSettingsRequestBody;
 
 use Stan\Configuration;
 use Stan\ApiException;
@@ -38,33 +37,30 @@ use Stan\Api\StanClient;
 use Stan\Test\Api\TestCase;
 
 /**
- * ConnectApiTest Class Doc Comment
+ * ApiSettingsTest Class Doc Comment
  *
  * @category Class
  * @package  Stan
  * @author Brightweb
  * @link https://stan-business.fr
  */
-class ConnectApiTest extends TestCase
+class ApiSettingsTest extends TestCase
 {
 
     /**
-     * Test case for create
+     * Test case for UpdateApiSettings
      *
-     * Create an access token to request user's infos.
+     * Updates API settings.
      *
      */
-    public function testCreateConnectAccessToken()
+    public function testUpdateApiSettings()
     {
         $this->client
             ->method('sendRequest')
-            ->willReturn('{"access_token": "abc"}');
+            ->willReturn(null);
 
-        $connectApi = new ConnectApi($this->client);
-        $accessToken = $connectApi->createConnectAccessToken(
-            new ConnectAccessTokenRequestBody()
-        );
-        $this->assertInstanceOf(ConnectAccessToken::class, $accessToken);
-        $this->assertSame("abc", $accessToken->getAccessToken());
+        $apiSettingsApi = new ApiSettingsApi($this->client);
+
+        $this->assertSame(null, $apiSettingsApi->UpdateApiSettings(new ApiSettingsRequestBody()));
     }
 }

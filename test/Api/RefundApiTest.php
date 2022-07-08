@@ -27,10 +27,15 @@
 
 namespace Stan\Test\Api;
 
-use \Stan\Configuration;
-use \Stan\ApiException;
-use \Stan\ObjectSerializer;
-use PHPUnit\Framework\TestCase;
+use Stan\Api\RefundApi;
+use Stan\Model\Refund;
+use Stan\Model\RefundRequestBody;
+
+use Stan\Configuration;
+use Stan\ApiException;
+use Stan\ObjectSerializer;
+use Stan\Api\StanClient;
+use Stan\Test\Api\TestCase;
 
 /**
  * RefundApiTest Class Doc Comment
@@ -44,55 +49,41 @@ class RefundApiTest extends TestCase
 {
 
     /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
-
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
-
-    /**
-     * Test case for createRefund
+     * Test case for create
      *
      * Create a refund.
      *
      */
-    public function testCreateRefund()
+    public function testCreate()
     {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
+        $this->client
+            ->method('sendRequest')
+            ->willReturn('{"amount": 101}');
+
+        $refundApi = new RefundApi($this->client);
+        $refund = $refundApi->create(new RefundRequestBody());
+
+        $this->assertInstanceOf(Refund::class, $refund);
+        $this->assertSame(101, $refund->getAmount());
     }
 
     /**
-     * Test case for fundRefundByID
+     * Test case for getRefund
      *
      * Get a refund.
      *
      */
-    public function testFundRefundByID()
+    public function testGetRefund()
     {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
+        $this->client
+            ->method('sendRequest')
+            ->willReturn('{"refund_id": "refund_id"}');
+
+        $refundApi = new RefundApi($this->client);
+        $refund = $refundApi->getRefund("refund_id");
+
+        $this->assertInstanceOf(Refund::class, $refund);
+        $this->assertSame("refund_id", $refund->getRefundId());
     }
 
     /**
@@ -103,7 +94,14 @@ class RefundApiTest extends TestCase
      */
     public function testGetRefunds()
     {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
+        $this->client
+            ->method('sendRequest')
+            ->willReturn('[{"refund_id": "refund_id"}]');
+
+        $refundApi = new RefundApi($this->client);
+        $refunds = $refundApi->getRefunds();
+
+        $this->assertFalse(empty($refunds));
+        $this->assertSame("refund_id", $refunds[0]->getRefundId());
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * APISettingRequestBody
+ * ApiSettingsRequestBody
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Stan\ObjectSerializer;
 
 /**
- * APISettingRequestBody Class Doc Comment
+ * ApiSettingsRequestBody Class Doc Comment
  *
  * @category Class
  * @package  Stan
@@ -42,7 +42,7 @@ use \Stan\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class APISettingRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
+class ApiSettingsRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class APISettingRequestBody implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'APISettingRequestBody';
+    protected static $openAPIModelName = 'ApiSettingsRequestBody';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

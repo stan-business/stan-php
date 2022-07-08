@@ -58,10 +58,10 @@ $apiInstance = new Stan\Api\ConnectApi(
 $connect_access_token_request_body = new \Stan\Model\ConnectAccessTokenRequestBody(); // \Stan\Model\ConnectAccessTokenRequestBody
 
 try {
-    $result = $apiInstance->userConnect($connect_access_token_request_body);
+    $result = $apiInstance->create($connect_access_token_request_body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ConnectApi->userConnect: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConnectApi->create: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -72,20 +72,20 @@ All URIs are relative to *https://api.stan-app.fr/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ConnectApi* | [**userConnect**](docs/Api/ConnectApi.md#userconnect) | **POST** /oauth/token | Create an access token to request user&#39;s infos
-*CustomerApi* | [**createCustomer**](docs/Api/CustomerApi.md#createcustomer) | **POST** /customers | Create a new customer
+*ConnectApi* | [**create**](docs/Api/ConnectApi.md#create) | **POST** /oauth/token | Create an access token to request user&#39;s infos
+*CustomerApi* | [**create**](docs/Api/CustomerApi.md#create) | **POST** /customers | Create a new customer
 *PaymentApi* | [**createPaymentInvoice**](docs/Api/PaymentApi.md#createpaymentinvoice) | **POST** /payments | Create a payment
 *PaymentApi* | [**findPaymentsByID**](docs/Api/PaymentApi.md#findpaymentsbyid) | **GET** /payments/{payment_id} | Get a payment
 *PaymentApi* | [**getPayments**](docs/Api/PaymentApi.md#getpayments) | **GET** /payments | Get all payments
-*RefundApi* | [**createRefund**](docs/Api/RefundApi.md#createrefund) | **POST** /refunds | Create a refund
-*RefundApi* | [**fundRefundByID**](docs/Api/RefundApi.md#fundrefundbyid) | **GET** /refunds/{refund_id} | Get a refund
+*RefundApi* | [**create**](docs/Api/RefundApi.md#createrefund) | **POST** /refunds | Create a refund
+*RefundApi* | [**getRefund**](docs/Api/RefundApi.md#fundrefundbyid) | **GET** /refunds/{refund_id} | Get a refund
 *RefundApi* | [**getRefunds**](docs/Api/RefundApi.md#getrefunds) | **GET** /refunds | Get all refunds
-*SettingsApi* | [**updateAPISetting**](docs/Api/SettingsApi.md#updateapisetting) | **PUT** /apis | Updates API settings
+*ApiSettings* | [**UpdateApiSettings**](docs/Api/ApiSettings.md#updateapisetting) | **PUT** /apis | Updates API settings
 *UserApi* | [**getUser**](docs/Api/UserApi.md#getuser) | **GET** /sessions/users | Get user infos
 
 ## Models
 
-- [APISettingRequestBody](docs/Model/APISettingRequestBody.md)
+- [ApiSettingsRequestBody](docs/Model/ApiSettingsRequestBody.md)
 - [Address](docs/Model/Address.md)
 - [ConnectAccessToken](docs/Model/ConnectAccessToken.md)
 - [ConnectAccessTokenRequestBody](docs/Model/ConnectAccessTokenRequestBody.md)

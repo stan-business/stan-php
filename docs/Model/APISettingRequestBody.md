@@ -1,4 +1,4 @@
-# # APISettingRequestBody
+# # ApiSettingsRequestBody
 
 ## Properties
 

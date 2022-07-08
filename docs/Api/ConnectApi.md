@@ -4,13 +4,13 @@ All URIs are relative to https://api.stan-app.fr/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**userConnect()**](ConnectApi.md#userConnect) | **POST** /oauth/token | Create an access token to request user&#39;s infos
+[**create()**](ConnectApi.md#create) | **POST** /oauth/token | Create an access token to request user&#39;s infos
 
 
-## `userConnect()`
+## `create()`
 
 ```php
-userConnect($connect_access_token_request_body): \Stan\Model\ConnectAccessToken
+create($connect_access_token_request_body): \Stan\Model\ConnectAccessToken
 ```
 
 Create an access token to request user's infos
@@ -37,10 +37,10 @@ $apiInstance = new Stan\Api\ConnectApi(
 $connect_access_token_request_body = new \Stan\Model\ConnectAccessTokenRequestBody(); // \Stan\Model\ConnectAccessTokenRequestBody
 
 try {
-    $result = $apiInstance->userConnect($connect_access_token_request_body);
+    $result = $apiInstance->create($connect_access_token_request_body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ConnectApi->userConnect: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConnectApi->create: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * APISettingRequestBodyTest
+ * ApiSettingsRequestBodyTest
  *
  * PHP version 7.3
  *
@@ -31,15 +31,15 @@ namespace Stan\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * APISettingRequestBodyTest Class Doc Comment
+ * ApiSettingsRequestBodyTest Class Doc Comment
  *
  * @category    Class
- * @description APISettingRequestBody
+ * @description ApiSettingsRequestBody
  * @package     Stan
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class APISettingRequestBodyTest extends TestCase
+class ApiSettingsRequestBodyTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class APISettingRequestBodyTest extends TestCase
     }
 
     /**
-     * Test "APISettingRequestBody"
+     * Test "ApiSettingsRequestBody"
      */
-    public function testAPISettingRequestBody()
+    public function testApiSettingsRequestBody()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

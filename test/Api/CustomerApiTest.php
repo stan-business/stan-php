@@ -27,10 +27,15 @@
 
 namespace Stan\Test\Api;
 
-use \Stan\Configuration;
-use \Stan\ApiException;
-use \Stan\ObjectSerializer;
-use PHPUnit\Framework\TestCase;
+use Stan\Api\CustomerApi;
+use Stan\Model\Customer;
+use Stan\Model\CustomerRequestBody;
+
+use Stan\Configuration;
+use Stan\ApiException;
+use Stan\ObjectSerializer;
+use Stan\Api\StanClient;
+use Stan\Test\Api\TestCase;
 
 /**
  * CustomerApiTest Class Doc Comment
@@ -44,42 +49,21 @@ class CustomerApiTest extends TestCase
 {
 
     /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
-
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
-
-    /**
-     * Test case for createCustomer
+     * Test case for create
      *
      * Create a new customer.
      *
      */
-    public function testCreateCustomer()
+    public function testCreate()
     {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
+        $this->client
+            ->method('sendRequest')
+            ->willReturn('{"email": "stan@stan-app.fr"}');
+
+        $customerApi = new CustomerApi($this->client);
+        $customer = $customerApi->create(new CustomerRequestBody());
+
+        $this->assertInstanceOf(Customer::class, $customer);
+        $this->assertSame('stan@stan-app.fr', $customer->getEmail());
     }
 }
