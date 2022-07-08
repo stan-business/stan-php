@@ -25,16 +25,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: stan_connect_auth
 $config = Stan\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-
-$apiInstance = new Stan\Api\UserApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+$stan_client = new Stan\Api\StanClient($config);
 
 try {
-    $result = $apiInstance->getUser();
+    $result = $stan_client->userApi->getUser();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->getUser: ', $e->getMessage(), PHP_EOL;

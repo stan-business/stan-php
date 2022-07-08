@@ -22,6 +22,7 @@ use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+
 use stdClass;
 
 class StanClient
@@ -47,9 +48,29 @@ class StanClient
     private $uriFactory;
 
     /**
-     * @var CustomerApi $customerApi
+     * @var ApiSettingsApi
+     */
+    public $apiSettingsApi;
+    /**
+     * @var ConnectApi
+     */
+    public $connectApi;
+    /**
+     * @var CustomerApi
      */
     public $customerApi;
+    /**
+     * @var PaymentApi
+     */
+    public $paymentApi;
+    /**
+     * @var RefundApi
+     */
+    public $refundApi;
+    /**
+     * @var UserApi
+     */
+    public $userApi;
 
     /**
      * @var string $clientId
@@ -73,7 +94,12 @@ class StanClient
      */
     public function __construct(Configuration $config = null, $extraRequestHeaders = null)
     {
+        $this->apiSettingsApi = new ApiSettingsApi($this);
+        $this->connectApi = new ConnectApi($this);
         $this->customerApi = new CustomerApi($this);
+        $this->paymentApi = new PaymentApi($this);
+        $this->refundApi = new RefundApi($this);
+        $this->userApi = new UserApi($this);
 
         $this->config = $config ?: Configuration::getDefaultConfiguration();
         $this->extraRequestHeaders = $extraRequestHeaders;

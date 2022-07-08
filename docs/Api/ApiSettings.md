@@ -27,19 +27,13 @@ $config = Stan\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_API_CLIENT_ID')
               ->setPassword('YOUR_API_CLIENT_SECRET');
 
-
-$apiInstance = new Stan\Api\ApiSettings(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+$stan_client = new Stan\Api\StanClient($config);
 $api_settings_request_body = new \Stan\Model\ApiSettingsRequestBody(); // \Stan\Model\ApiSettingsRequestBody
 
 try {
-    $apiInstance->UpdateApiSettings($api_settings_request_body);
+    $stan_client->apiSettingsApi->updateApiSettings($api_settings_request_body);
 } catch (Exception $e) {
-    echo 'Exception when calling ApiSettings->UpdateApiSettings: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ApiSettingsApi->updateApiSettings: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

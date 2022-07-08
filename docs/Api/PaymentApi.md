@@ -30,19 +30,14 @@ $config = Stan\Configuration::getDefaultConfiguration()
               ->setPassword('YOUR_API_CLIENT_SECRET');
 
 
-$apiInstance = new Stan\Api\PaymentApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+$stan_client = new Stan\Api\StanClient($config);
 $payment_request_body = new \Stan\Model\PaymentRequestBody(); // \Stan\Model\PaymentRequestBody
 
 try {
-    $result = $apiInstance->createPaymentInvoice($payment_request_body);
+    $result = $stan_client->paymentApi->create($payment_request_body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentApi->createPaymentInvoice: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentApi->create: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

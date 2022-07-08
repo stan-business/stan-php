@@ -27,20 +27,15 @@ $config = Stan\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_API_CLIENT_ID')
               ->setPassword('YOUR_API_CLIENT_SECRET');
 
+$stan_client = new Stan\Api\StanClient($config);
 
-$apiInstance = new Stan\Api\ConnectApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
 $connect_access_token_request_body = new \Stan\Model\ConnectAccessTokenRequestBody(); // \Stan\Model\ConnectAccessTokenRequestBody
 
 try {
-    $result = $apiInstance->create($connect_access_token_request_body);
+    $result = $stan_client->connectApi->createConnectAccessToken($connect_access_token_request_body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ConnectApi->create: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConnectApi->createConnectAccessToken: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

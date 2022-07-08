@@ -29,17 +29,11 @@ $config = Stan\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_API_CLIENT_ID')
               ->setPassword('YOUR_API_CLIENT_SECRET');
 
-
-$apiInstance = new Stan\Api\RefundApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+$stan_client = new Stan\Api\StanClient($config);
 $refund_request_body = new \Stan\Model\RefundRequestBody(); // \Stan\Model\RefundRequestBody
 
 try {
-    $result = $apiInstance->create($refund_request_body);
+    $result = $stan_client->refundApi->create($refund_request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RefundApi->create: ', $e->getMessage(), PHP_EOL;
