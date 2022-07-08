@@ -27,10 +27,14 @@
 
 namespace Stan\Test\Api;
 
-use \Stan\Configuration;
-use \Stan\ApiException;
-use \Stan\ObjectSerializer;
-use PHPUnit\Framework\TestCase;
+use Stan\Api\UserApi;
+use Stan\Model\User;
+
+use Stan\Configuration;
+use Stan\ApiException;
+use Stan\ObjectSerializer;
+use Stan\Api\StanClient;
+use Stan\Test\Api\TestCase;
 
 /**
  * UserApiTest Class Doc Comment
@@ -44,34 +48,6 @@ class UserApiTest extends TestCase
 {
 
     /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
-
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
-
-    /**
      * Test case for getUser
      *
      * Get user infos.
@@ -79,7 +55,14 @@ class UserApiTest extends TestCase
      */
     public function testGetUser()
     {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
+        $this->client
+            ->method('sendRequest')
+            ->willReturn('{"sub": "sub_id"}');
+
+        $user_api = new UserApi($this->client);
+        $user = $user_api->getUser();
+
+        $this->assertInstanceOf(User::class, $user);
+        $this->assertSame('sub_id', $user->getSub());
     }
 }
