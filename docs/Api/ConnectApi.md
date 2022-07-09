@@ -21,7 +21,6 @@ Create an access token to request user's infos
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: stan_basic_auth
 $config = Stan\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_API_CLIENT_ID')

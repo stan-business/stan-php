@@ -7,8 +7,15 @@ Stan Client API
 
 ### Requirements
 
-PHP 7.3 and later.
+PHP 7.1 and later.
 Should also work with PHP 8.0 but has not been tested.
+
+_This library implement `php-http` (HTTPPlug) to let you use your own http client with `adapter`_
+[HTTPlug](https://docs.php-http.org/en/latest/index.html) is an abstraction that allows this library to support many different HTTP Clients. Therefore, you need to provide it with an adapter for the HTTP library you prefer. You can find all the available adapters in Packagist. This documentation assumes you use the Guzzle5 Client, but you can replace it with any adapter that you prefer.
+
+The recommended way to install intercom-php is through Composer:
+
+`composer require stan-business/stan-php php-http/guzzle5-adapter`
 
 ### Composer
 
@@ -47,23 +54,20 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: stan_basic_auth
+$config = Stan\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_API_CLIENT_ID')
+              ->setPassword('YOUR_API_CLIENT_SECRET');
 
-
-
-$apiInstance = new Stan\Api\ConnectApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
+$stan_client = new Stan\Api\StanClient($config);
 $connect_access_token_request_body = new \Stan\Model\ConnectAccessTokenRequestBody(); // \Stan\Model\ConnectAccessTokenRequestBody
 
 try {
-    $result = $apiInstance->create($connect_access_token_request_body);
+    $result = $stan_client->connectApi->createConnectAccessToken($connect_access_token_request_body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ConnectApi->create: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConnectApi->createConnectAccessToken: ', $e->getMessage(), PHP_EOL;
 }
-
 ```
 
 ## API Endpoints
@@ -74,13 +78,13 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ConnectApi* | [**create**](docs/Api/ConnectApi.md#create) | **POST** /oauth/token | Create an access token to request user&#39;s infos
 *CustomerApi* | [**create**](docs/Api/CustomerApi.md#create) | **POST** /customers | Create a new customer
-*PaymentApi* | [**createPaymentInvoice**](docs/Api/PaymentApi.md#createpaymentinvoice) | **POST** /payments | Create a payment
-*PaymentApi* | [**findPaymentsByID**](docs/Api/PaymentApi.md#findpaymentsbyid) | **GET** /payments/{payment_id} | Get a payment
+*PaymentApi* | [**create**](docs/Api/PaymentApi.md#create) | **POST** /payments | Create a payment
+*PaymentApi* | [**getPayment**](docs/Api/PaymentApi.md#getPayment) | **GET** /payments/{payment_id} | Get a payment
 *PaymentApi* | [**getPayments**](docs/Api/PaymentApi.md#getpayments) | **GET** /payments | Get all payments
 *RefundApi* | [**create**](docs/Api/RefundApi.md#createrefund) | **POST** /refunds | Create a refund
 *RefundApi* | [**getRefund**](docs/Api/RefundApi.md#fundrefundbyid) | **GET** /refunds/{refund_id} | Get a refund
 *RefundApi* | [**getRefunds**](docs/Api/RefundApi.md#getrefunds) | **GET** /refunds | Get all refunds
-*ApiSettings* | [**UpdateApiSettings**](docs/Api/ApiSettings.md#updateapisetting) | **PUT** /apis | Updates API settings
+*ApiSettings* | [**updateApiSettings**](docs/Api/ApiSettings.md#updateapisetting) | **PUT** /apis | Updates API settings
 *UserApi* | [**getUser**](docs/Api/UserApi.md#getuser) | **GET** /sessions/users | Get user infos
 
 ## Models
