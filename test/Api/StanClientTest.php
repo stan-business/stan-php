@@ -48,6 +48,27 @@ class StanClientTest extends TestCase
         }
     }
 
+    public function testAccessTokenClient()
+    {
+        $httpClient = new Client();
+        $httpClient->addResponse(
+            new Response(200, ['X-Foo' => 'Bar'], "{\"foo\":\"bar\"}")
+        );
+
+        $config = new Configuration();
+        $config = $config->setAccessToken("bearer_token");
+
+        $client = new StanClient($config);
+        $client->setHttpClient($httpClient);
+
+        $client->userApi->getUser();
+
+        foreach ($httpClient->getRequests() as $request) {
+            $bearer = $request->getHeaders()['Authorization'][0];
+            $this->assertSame("Bearer bearer_token", $bearer);
+        }
+    }
+
     public function testClientWithExtraHeaders()
     {
         $httpClient = new Client();

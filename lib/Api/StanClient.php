@@ -158,8 +158,8 @@ class StanClient
     {
         if (!empty($this->config->getClientId()) && !empty($this->config->getClientSecret())) {
             return new BasicAuth($this->config->getClientId(), $this->config->getClientSecret());
-        } elseif (!empty($this->config->accessToken)) {
-            return new Bearer($this->appIdOrToken);
+        } elseif (!empty($this->config->getAccessToken())) {
+            return new Bearer($this->config->getAccessToken());
         }
         return null;
     }
