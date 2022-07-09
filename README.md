@@ -13,7 +13,7 @@ Should also work with PHP 8.0 but has not been tested.
 _This library implement `php-http` (HTTPPlug) to let you use your own http client with `adapter`_
 [HTTPlug](https://docs.php-http.org/en/latest/index.html) is an abstraction that allows this library to support many different HTTP Clients. Therefore, you need to provide it with an adapter for the HTTP library you prefer. You can find all the available adapters in Packagist. This documentation assumes you use the Guzzle5 Client, but you can replace it with any adapter that you prefer.
 
-The recommended way to install intercom-php is through Composer:
+The recommended way to install `stan-business/stan-php` is through Composer:
 
 `composer require stan-business/stan-php php-http/guzzle5-adapter`
 
