@@ -26,8 +26,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: stan_basic_auth
 $config = Stan\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_API_CLIENT_ID')
-              ->setPassword('YOUR_API_CLIENT_SECRET');
+              ->setClientId('YOUR_API_CLIENT_ID')
+              ->setClientSecret('YOUR_API_CLIENT_SECRET');
 
 
 $stan_client = new Stan\Api\StanClient($config);
@@ -83,8 +83,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: stan_basic_auth
 $config = Stan\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_API_CLIENT_ID')
-              ->setPassword('YOUR_API_CLIENT_SECRET');
+              ->setClientId('YOUR_API_CLIENT_ID')
+              ->setClientSecret('YOUR_API_CLIENT_SECRET');
 
 
 $apiInstance = new Stan\Api\PaymentApi(
@@ -143,8 +143,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: stan_basic_auth
 $config = Stan\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_API_CLIENT_ID')
-              ->setPassword('YOUR_API_CLIENT_SECRET');
+              ->setClientId('YOUR_API_CLIENT_ID')
+              ->setClientSecret('YOUR_API_CLIENT_SECRET');
 
 
 $apiInstance = new Stan\Api\PaymentApi(
