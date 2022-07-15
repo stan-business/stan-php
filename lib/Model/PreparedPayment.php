@@ -61,7 +61,7 @@ class PreparedPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'payment_id' => 'string',
         'state' => 'string',
-        'redirect_uri' => 'string'
+        'redirect_url' => 'string'
     ];
 
     /**
@@ -74,7 +74,7 @@ class PreparedPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'payment_id' => 'uuid',
         'state' => 'string',
-        'redirect_uri' => 'uri'
+        'redirect_url' => 'uri'
     ];
 
     /**
@@ -106,7 +106,7 @@ class PreparedPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'payment_id' => 'payment_id',
         'state' => 'state',
-        'redirect_uri' => 'redirect_uri'
+        'redirect_url' => 'redirect_url'
     ];
 
     /**
@@ -117,7 +117,7 @@ class PreparedPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'payment_id' => 'setPaymentId',
         'state' => 'setState',
-        'redirect_uri' => 'setRedirectUri'
+        'redirect_url' => 'setRedirectUrl'
     ];
 
     /**
@@ -128,7 +128,7 @@ class PreparedPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'payment_id' => 'getPaymentId',
         'state' => 'getState',
-        'redirect_uri' => 'getRedirectUri'
+        'redirect_url' => 'getRedirectUrl'
     ];
 
     /**
@@ -190,7 +190,7 @@ class PreparedPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['payment_id'] = $data['payment_id'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
-        $this->container['redirect_uri'] = $data['redirect_uri'] ?? null;
+        $this->container['redirect_url'] = $data['redirect_url'] ?? null;
     }
 
     /**
@@ -266,25 +266,25 @@ class PreparedPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets redirect_uri
+     * Gets redirect_url
      *
      * @return string|null
      */
-    public function getRedirectUri()
+    public function getRedirectUrl()
     {
-        return $this->container['redirect_uri'];
+        return $this->container['redirect_url'];
     }
 
     /**
-     * Sets redirect_uri
+     * Sets redirect_url
      *
-     * @param string|null $redirect_uri redirect_uri
+     * @param string|null $redirect_url redirect_url
      *
      * @return self
      */
-    public function setRedirectUri($redirect_uri)
+    public function setRedirectUrl($redirect_url)
     {
-        $this->container['redirect_uri'] = $redirect_uri;
+        $this->container['redirect_url'] = $redirect_url;
 
         return $this;
     }

@@ -59,13 +59,13 @@ class PaymentApiTest extends TestCase
     {
         $this->client
             ->method('sendRequest')
-            ->willReturn('{"payment_id": "abc", "redirect_uri": "https://stan-app.fr"}');
+            ->willReturn('{"payment_id": "abc", "redirect_url": "https://stan-app.fr"}');
 
         $paymentApi = new PaymentApi($this->client);
         $payment = $paymentApi->create(new PaymentRequestBody());
         $this->assertInstanceOf(PreparedPayment::class, $payment);
         $this->assertSame("abc", $payment->getPaymentId());
-        $this->assertSame("https://stan-app.fr", $payment->getRedirectUri());
+        $this->assertSame("https://stan-app.fr", $payment->getRedirectUrl());
     }
 
     /**
