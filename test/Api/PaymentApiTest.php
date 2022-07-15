@@ -29,6 +29,7 @@ namespace Stan\Test\Api;
 
 use Stan\Api\PaymentApi;
 use Stan\Model\Payment;
+use Stan\Model\PreparedPayment;
 use Stan\Model\PaymentRequestBody;
 
 use Stan\Configuration;
@@ -58,12 +59,13 @@ class PaymentApiTest extends TestCase
     {
         $this->client
             ->method('sendRequest')
-            ->willReturn('{"amount": 123}');
+            ->willReturn('{"payment_id": "abc", "redirect_uri": "https://stan-app.fr"}');
 
         $paymentApi = new PaymentApi($this->client);
         $payment = $paymentApi->create(new PaymentRequestBody());
-        $this->assertInstanceOf(Payment::class, $payment);
-        $this->assertSame(123, $payment->getAmount());
+        $this->assertInstanceOf(PreparedPayment::class, $payment);
+        $this->assertSame("abc", $payment->getPaymentId());
+        $this->assertSame("https://stan-app.fr", $payment->getRedirectUri());
     }
 
     /**

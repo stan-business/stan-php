@@ -18,6 +18,7 @@ docs/Model/Customer.md
 docs/Model/CustomerRequestBody.md
 docs/Model/Payment.md
 docs/Model/PaymentRequestBody.md
+docs/Model/PreparedPayment.md
 docs/Model/Refund.md
 docs/Model/RefundRequestBody.md
 docs/Model/User.md

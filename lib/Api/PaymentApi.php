@@ -70,7 +70,7 @@ class PaymentApi extends StanResource
     {
         $content = $this->client
             ->sendRequest('POST', '/payments', null, $payment_request_body);
-        return ObjectSerializer::deserialize($content, '\Stan\Model\Payment', []);
+        return ObjectSerializer::deserialize($content, '\Stan\Model\PreparedPayment', []);
     }
 
     /**
