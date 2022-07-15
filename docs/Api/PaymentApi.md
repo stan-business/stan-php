@@ -4,7 +4,7 @@ All URIs are relative to https://api.stan-app.fr/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createPaymentInvoice()**](PaymentApi.md#createPaymentInvoice) | **POST** /payments | Create a payment
+[**create()**](PaymentApi.md#create) | **POST** /payments | Prepare a payment
 [**findPaymentsByID()**](PaymentApi.md#findPaymentsByID) | **GET** /payments/{payment_id} | Get a payment
 [**getPayments()**](PaymentApi.md#getPayments) | **GET** /payments | Get all payments
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `createPaymentInvoice()`
 
 ```php
-createPaymentInvoice($payment_request_body): \Stan\Model\Payment
+create($payment_request_body): \Stan\Model\PreparedPayment
 ```
 
 Create a payment
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Stan\Model\Payment**](../Model/Payment.md)
+[**\Stan\Model\PreparedPayment**](../Model/PreparedPayment.md)
 
 ### Authorization
 

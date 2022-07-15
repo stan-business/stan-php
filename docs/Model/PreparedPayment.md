@@ -1,0 +1,11 @@
+# # PreparedPayment
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**payment_id** | **string** |  | [optional]
+**state** | **string** |  | [optional]
+**redirect_uri** | **string** |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
