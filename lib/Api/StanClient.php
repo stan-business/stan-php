@@ -196,7 +196,7 @@ class StanClient
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody()->getContents() : null
                 );
             } catch (NetworkException $e) {
                 throw new ApiException(
@@ -225,11 +225,11 @@ class StanClient
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string) $response->getBody()->getContents()
                 );
             }
 
-            return $response->getBody();
+            return $response->getBody()->getContents();
         } catch (ApiException $e) {
             throw $e;
         }
