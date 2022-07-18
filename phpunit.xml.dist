@@ -10,6 +10,7 @@
     <testsuite name="tests">
       <directory>./test/Api</directory>
       <directory>./test/Model</directory>
+      <directory>./test/Utils</directory>
     </testsuite>
   </testsuites>
   <php>

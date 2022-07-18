@@ -6,6 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create()**](ConnectApi.md#create) | **POST** /oauth/token | Create an access token to request user&#39;s infos
 
+## Authorize request
+
+Use `ConnectUtils` to generate a connect link for your users. See [https://doc.stan-app.fr/#create-an-authorization-request](https://doc.stan-app.fr/#create-an-authorization-request)
+
 
 ## `create()`
 
@@ -21,14 +25,14 @@ Create an access token to request user's infos
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: stan_basic_auth
-$config = Stan\Configuration::getDefaultConfiguration()
-              ->setClientId('YOUR_API_CLIENT_ID')
-              ->setClientSecret('YOUR_API_CLIENT_SECRET');
+$config = Stan\Configuration::getDefaultConfiguration();
 
 $stan_client = new Stan\Api\StanClient($config);
 
 $connect_access_token_request_body = new \Stan\Model\ConnectAccessTokenRequestBody(); // \Stan\Model\ConnectAccessTokenRequestBody
+
+// get the code from authorize request https://doc.stan-app.fr/#create-an-authorization-request
+$connect_access_token_request_body->setCode("123");
 
 try {
     $result = $stan_client->connectApi->createConnectAccessToken($connect_access_token_request_body);
@@ -47,10 +51,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Stan\Model\ConnectAccessToken**](../Model/ConnectAccessToken.md)
-
-### Authorization
-
-[stan_basic_auth](../../README.md#stan_basic_auth)
 
 ### HTTP request headers
 
