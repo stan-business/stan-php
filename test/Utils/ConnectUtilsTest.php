@@ -32,7 +32,7 @@ class ConnectUtilsTest extends TestCase
     public function testGenerateAuthorizeRequestLink()
     {
         $authorize_url = ConnectUtils::generateAuthorizeRequestLink("client_id", "https://stan-business.fr", "abc");
-        $expected_url = "https://api.stan-app.fr/v1?response_type=code&scope=openid+phone+email+address+profile&client_id=client_id&state=abc&redirect_uri=https%3A%2F%2Fstan-business.fr";
+        $expected_url = "https://api.stan-app.fr/v1/oauth/auth?response_type=code&scope=openid+phone+email+address+profile&client_id=client_id&state=abc&redirect_uri=https%3A%2F%2Fstan-business.fr";
         $this->assertSame($expected_url, $authorize_url);
     }
 }
