@@ -22,7 +22,7 @@ use Stan\Test\Api\TestCase;
  * @author Brightweb
  * @link https://stan-business.fr
  */
-class ConnectTest extends TestCase
+class ConnectUtilsTest extends TestCase
 {
 
     /**
