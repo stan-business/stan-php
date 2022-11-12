@@ -64,7 +64,7 @@ class PaymentApi extends StanResource
      *
      * @throws \Stan\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Stan\Model\Payment
+     * @return \Stan\Model\PreparedPayment
      */
     public function create($payment_request_body = null)
     {
