@@ -61,6 +61,6 @@ class ApiSettingsTest extends TestCase
 
         $apiSettingsApi = new ApiSettingsApi($this->client);
 
-        $this->assertSame(null, $apiSettingsApi->UpdateApiSettings(new ApiSettingsRequestBody()));
+        $this->assertSame(null, $apiSettingsApi->updateApiSettings(new ApiSettingsRequestBody()));
     }
 }

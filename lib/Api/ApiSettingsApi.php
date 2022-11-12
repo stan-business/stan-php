@@ -57,7 +57,7 @@ class ApiSettingsApi extends StanResource
 {
 
     /**
-     * Operation UpdateApiSettings
+     * Operation updateApiSettings
      *
      * Updates API settings
      *
@@ -67,7 +67,7 @@ class ApiSettingsApi extends StanResource
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function UpdateApiSettings($api_settings_request_body)
+    public function updateApiSettings($api_settings_request_body)
     {
         $content = $this->client
             ->sendRequest('PUT', '/apis', null, $api_settings_request_body);
