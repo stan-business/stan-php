@@ -202,11 +202,15 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    const PAYMENT_STATUS_PREPARED = 'payment_prepared';
     const PAYMENT_STATUS_HOLDING = 'payment_holding';
     const PAYMENT_STATUS_PENDING = 'payment_pending';
     const PAYMENT_STATUS_FAILURE = 'payment_failure';
     const PAYMENT_STATUS_SUCCESS = 'payment_success';
     const PAYMENT_STATUS_CANCELLED = 'payment_cancelled';
+    const PAYMENT_STATUS_PARTIAL_REFUNDED = 'payment_partial_refunded';
+    const PAYMENT_STATUS_REFUNDED = 'payment_refunded';
+    const PAYMENT_STATUS_EXPIRED = 'payment_expired';
 
     /**
      * Gets allowable values of the enum
@@ -216,11 +220,15 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getPaymentStatusAllowableValues()
     {
         return [
+            self::PAYMENT_STATUS_PREPARED,
             self::PAYMENT_STATUS_HOLDING,
             self::PAYMENT_STATUS_PENDING,
             self::PAYMENT_STATUS_FAILURE,
             self::PAYMENT_STATUS_SUCCESS,
             self::PAYMENT_STATUS_CANCELLED,
+            self::PAYMENT_STATUS_PARTIAL_REFUNDED,
+            self::PAYMENT_STATUS_REFUNDED,
+            self::PAYMENT_STATUS_EXPIRED,
         ];
     }
 
