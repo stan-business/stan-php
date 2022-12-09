@@ -6,8 +6,8 @@
  *
  * @category Class
  * @package  Stan
- * @author Brightweb
- * @link https://stan-business.fr
+ * @author   Brightweb
+ * @link     https://stan-business.fr
  */
 
 /**
@@ -36,8 +36,8 @@ use \Stan\ObjectSerializer;
  *
  * @category Class
  * @package  Stan
- * @author Brightweb
- * @link https://stan-business.fr
+ * @author   Brightweb
+ * @link     https://stan-business.fr
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
@@ -61,6 +61,10 @@ class PaymentRequestBody implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'order_id' => 'string',
         'amount' => 'int',
+        'subtotal_amount' => 'int',
+        'shipping_amount' => 'int',
+        'discount_amount' => 'int',
+        'tax_amount' => 'int',
         'return_url' => 'string',
         'cancel_url' => 'string',
         'customer_id' => 'string',
@@ -77,6 +81,10 @@ class PaymentRequestBody implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'order_id' => 'string',
         'amount' => 'int32',
+        'subtotal_amount' => 'int32',
+        'shipping_amount' => 'int32',
+        'discount_amount' => 'int32',
+        'tax_amount' => 'int32',
         'return_url' => 'uri',
         'cancel_url' => 'uri',
         'customer_id' => 'uuid',
@@ -112,6 +120,10 @@ class PaymentRequestBody implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $attributeMap = [
         'order_id' => 'order_id',
         'amount' => 'amount',
+        'subtotal_amount' => 'subtotal_amount',
+        'shipping_amount' => 'shipping_amount',
+        'discount_amount' => 'discount_amount',
+        'tax_amount' => 'tax_amount',
         'return_url' => 'return_url',
         'cancel_url' => 'cancel_url',
         'customer_id' => 'customer_id',
@@ -126,6 +138,10 @@ class PaymentRequestBody implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $setters = [
         'order_id' => 'setOrderId',
         'amount' => 'setAmount',
+        'subtotal_amount' => 'setSubtotalAmount',
+        'shipping_amount' => 'setShippingAmount',
+        'discount_amount' => 'setDiscountAmount',
+        'tax_amount' => 'setTaxAmount',
         'return_url' => 'setReturnUrl',
         'cancel_url' => 'setCancelUrl',
         'customer_id' => 'setCustomerId',
@@ -140,6 +156,10 @@ class PaymentRequestBody implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $getters = [
         'order_id' => 'getOrderId',
         'amount' => 'getAmount',
+        'subtotal_amount' => 'getSubtotalAmount',
+        'shipping_amount' => 'getShippingAmount',
+        'discount_amount' => 'getDiscountAmount',
+        'tax_amount' => 'getTaxAmount',
         'return_url' => 'getReturnUrl',
         'cancel_url' => 'getCancelUrl',
         'customer_id' => 'getCustomerId',
@@ -205,6 +225,10 @@ class PaymentRequestBody implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $this->container['order_id'] = $data['order_id'] ?? null;
         $this->container['amount'] = $data['amount'] ?? null;
+        $this->container['subtotal_amount'] = $data['subtotal_amount'] ?? null;
+        $this->container['shipping_amount'] = $data['shipping_amount'] ?? null;
+        $this->container['discount_amount'] = $data['discount_amount'] ?? null;
+        $this->container['tax_amount'] = $data['tax_amount'] ?? null;
         $this->container['return_url'] = $data['return_url'] ?? null;
         $this->container['cancel_url'] = $data['cancel_url'] ?? null;
         $this->container['customer_id'] = $data['customer_id'] ?? null;
@@ -288,6 +312,102 @@ class PaymentRequestBody implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setAmount($amount)
     {
         $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtotal_amount
+     *
+     * @return int|null
+     */
+    public function getSubtotalAmount()
+    {
+        return $this->container['subtotal_amount'];
+    }
+
+    /**
+     * Sets subtotal_amount
+     *
+     * @param int|null $subtotal_amount The subtotal amount in cents. This amount is optionnal, it's useful to give information to the user.
+     *
+     * @return self
+     */
+    public function setSubtotalAmount($subtotal_amount)
+    {
+        $this->container['subtotal_amount'] = $subtotal_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_amount
+     *
+     * @return int|null
+     */
+    public function getShippingAmount()
+    {
+        return $this->container['shipping_amount'];
+    }
+
+    /**
+     * Sets shipping_amount
+     *
+     * @param int|null $shipping_amount The shipping cost in cents. This amount is optionnal, it's useful to give information to the user.
+     *
+     * @return self
+     */
+    public function setShippingAmount($shipping_amount)
+    {
+        $this->container['shipping_amount'] = $shipping_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_amount
+     *
+     * @return int|null
+     */
+    public function getDiscountAmount()
+    {
+        return $this->container['discount_amount'];
+    }
+
+    /**
+     * Sets discount_amount
+     *
+     * @param int|null $discount_amount The discount amount in cents. This amount is optionnal, it's useful to give information to the user.
+     *
+     * @return self
+     */
+    public function setDiscountAmount($discount_amount)
+    {
+        $this->container['discount_amount'] = $discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_amount
+     *
+     * @return int|null
+     */
+    public function getTaxAmount()
+    {
+        return $this->container['tax_amount'];
+    }
+
+    /**
+     * Sets tax_amount
+     *
+     * @param int|null $tax_amount The tax amount in cents. This amount is optionnal, it's useful to give information to the user.
+     *
+     * @return self
+     */
+    public function setTaxAmount($tax_amount)
+    {
+        $this->container['tax_amount'] = $tax_amount;
 
         return $this;
     }

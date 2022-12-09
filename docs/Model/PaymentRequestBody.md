@@ -6,6 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **order_id** | **string** |  |
 **amount** | **int** | Amount in cents |
+**subtotal_amount** | **int** | The subtotal amount in cents. This amount is optionnal, it&#39;s useful to give information to the user. | [optional]
+**shipping_amount** | **int** | The shipping cost in cents. This amount is optionnal, it&#39;s useful to give information to the user. | [optional]
+**discount_amount** | **int** | The discount amount in cents. This amount is optionnal, it&#39;s useful to give information to the user. | [optional]
+**tax_amount** | **int** | The tax amount in cents. This amount is optionnal, it&#39;s useful to give information to the user. | [optional]
 **return_url** | **string** | The return URL where the user will land after the payment has been complete. The URL will be appended with a URI query payment_status with the value corresponding to the Payment status and state with the value you provided in state. |
 **cancel_url** | **string** | The redirect URL used in case of payment cancel or fail. | [optional]
 **customer_id** | **string** | UUID of the customer | [optional]

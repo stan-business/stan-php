@@ -1,13 +1,13 @@
 <?php
 /**
- * ApiSettingsRequestBodyTest
+ * PreparedPaymentTest
  *
  * PHP version 7.3
  *
  * @category Class
  * @package  Stan
- * @author Brightweb
- * @link https://stan-business.fr
+ * @author   Brightweb
+ * @link     https://stan-business.fr
  */
 
 /**
@@ -31,15 +31,15 @@ namespace Stan\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ApiSettingsRequestBodyTest Class Doc Comment
+ * PreparedPaymentTest Class Doc Comment
  *
  * @category    Class
- * @description ApiSettingsRequestBody
+ * @description PreparedPayment
  * @package     Stan
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ApiSettingsRequestBodyTest extends TestCase
+class PreparedPaymentTest extends TestCase
 {
 
     /**
@@ -71,27 +71,36 @@ class ApiSettingsRequestBodyTest extends TestCase
     }
 
     /**
-     * Test "ApiSettingsRequestBody"
+     * Test "PreparedPayment"
      */
-    public function testApiSettingsRequestBody()
+    public function testPreparedPayment()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "payment_webhook_url"
+     * Test attribute "payment_id"
      */
-    public function testPropertyPaymentWebhookUrl()
+    public function testPropertyPaymentId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "oauth_redirect_url"
+     * Test attribute "state"
      */
-    public function testPropertyOauthRedirectUrl()
+    public function testPropertyState()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "redirect_url"
+     */
+    public function testPropertyRedirectUrl()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

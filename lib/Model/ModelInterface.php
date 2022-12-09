@@ -6,8 +6,8 @@
  *
  * @category Class
  * @package  Stan\Model
- * @author Brightweb
- * @link https://stan-business.fr
+ * @author   Brightweb
+ * @link     https://stan-business.fr
  */
 
 /**
