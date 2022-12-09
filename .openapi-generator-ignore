@@ -12,3 +12,4 @@ lib/HeaderSelector.php
 lib/ObjectSerializer.php
 
 README.md
+composer.json
