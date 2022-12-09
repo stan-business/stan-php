@@ -10,3 +10,5 @@ lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
 lib/ObjectSerializer.php
+
+README.md
