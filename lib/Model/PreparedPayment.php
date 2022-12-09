@@ -7,7 +7,7 @@
  * @category Class
  * @package  Stan
  * @author   Brightweb
- * @link     https://www.stan-business.fr
+ * @link     https://stan-business.fr
  */
 
 /**
@@ -37,7 +37,7 @@ use \Stan\ObjectSerializer;
  * @category Class
  * @package  Stan
  * @author   Brightweb
- * @link     https://www.stan-business.fr
+ * @link     https://stan-business.fr
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
