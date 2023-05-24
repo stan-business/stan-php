@@ -70,6 +70,6 @@ class ApiSettingsApi extends StanResource
     public function updateApiSettings($api_settings_request_body)
     {
         $content = $this->client
-            ->sendRequest('PUT', '/apis', null, $api_settings_request_body);
+            ->sendRequest('PUT', '/v1/apis', null, $api_settings_request_body);
     }
 }

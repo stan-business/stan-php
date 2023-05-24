@@ -70,7 +70,7 @@ class ConnectApi extends StanResource
     public function createConnectAccessToken($connect_access_token_request_body)
     {
         $content = $this->client
-            ->sendRequest('POST', '/oauth/token', null, $connect_access_token_request_body);
+            ->sendRequest('POST', '/v1/oauth/token', null, $connect_access_token_request_body);
         return ObjectSerializer::deserialize($content, '\Stan\Model\ConnectAccessToken', []);
     }
 }
