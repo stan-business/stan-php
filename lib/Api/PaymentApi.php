@@ -69,7 +69,7 @@ class PaymentApi extends StanResource
     public function create($payment_request_body = null)
     {
         $content = $this->client
-            ->sendRequest('POST', '/payments', null, $payment_request_body);
+            ->sendRequest('POST', '/v1/payments', null, $payment_request_body);
         return ObjectSerializer::deserialize($content, '\Stan\Model\PreparedPayment', []);
     }
 
@@ -89,7 +89,7 @@ class PaymentApi extends StanResource
         $resourcePath = str_replace(
             '{' . 'payment_id' . '}',
             ObjectSerializer::toPathValue($payment_id),
-            '/payments/{payment_id}'
+            '/v1/payments/{payment_id}'
         );
         $content = $this->client->sendRequest('GET', $resourcePath);
         return ObjectSerializer::deserialize($content, '\Stan\Model\Payment', []);
@@ -107,7 +107,7 @@ class PaymentApi extends StanResource
      */
     public function getPayments()
     {
-        $resBody = $this->client->sendRequest('GET', '/payments');
+        $resBody = $this->client->sendRequest('GET', '/v1/payments');
         return ObjectSerializer::deserialize($resBody, '\Stan\Model\Payment[]', []);
     }
 }

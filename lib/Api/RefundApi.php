@@ -70,7 +70,7 @@ class RefundApi extends StanREsource
     public function create($refund_request_body)
     {
         $content = $this->client
-            ->sendRequest('POST', '/refunds', null, $refund_request_body);
+            ->sendRequest('POST', '/v1/refunds', null, $refund_request_body);
         return ObjectSerializer::deserialize($content, '\Stan\Model\Refund', []);
     }
 
@@ -90,7 +90,7 @@ class RefundApi extends StanREsource
         $resourcePath = str_replace(
             '{' . 'refund_id' . '}',
             ObjectSerializer::toPathValue($refund_id),
-            '/refunds/{refund_id}'
+            '/v1/refunds/{refund_id}'
         );
         $content = $this->client->sendRequest('GET', $resourcePath);
         return ObjectSerializer::deserialize($content, '\Stan\Model\Refund', []);
@@ -109,7 +109,7 @@ class RefundApi extends StanREsource
     public function getRefunds()
     {
         $content = $this->client
-            ->sendRequest('GET', '/refunds');
+            ->sendRequest('GET', '/v1/refunds');
         return ObjectSerializer::deserialize($content, '\Stan\Model\Refund[]', []);
     }
 }

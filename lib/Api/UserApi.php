@@ -70,7 +70,7 @@ class UserApi extends StanResource
     {
         // /sessions/users 'GET'
         $content = $this->client
-            ->sendRequest('POST', '/sessions/users');
+            ->sendRequest('POST', '/v1/sessions/users');
         return ObjectSerializer::deserialize($content, '\Stan\Model\User', []);
     }
 }
