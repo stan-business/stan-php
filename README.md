@@ -1,7 +1,6 @@
-# Stan
+# Stan Client PHP
 
-Stan Client API
-
+[Stan Client API for PHP](https://doc.stan-app.fr)
 
 ## Installation & Usage
 

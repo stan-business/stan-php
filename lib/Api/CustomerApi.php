@@ -69,7 +69,7 @@ class CustomerApi extends StanResource
     public function create($customer_request_body)
     {
         $content = $this->client
-            ->sendRequest('POST', '/customers', null, $customer_request_body);
+            ->sendRequest('POST', '/v1/customers', null, $customer_request_body);
         return ObjectSerializer::deserialize($content, '\Stan\Model\Customer', []);
     }
 }

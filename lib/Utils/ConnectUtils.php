@@ -54,6 +54,6 @@ class ConnectUtils
 
         $q = http_build_query($params);
 
-        return $conf->getHost() . "/oauth/auth?" . $q;
+        return $conf->getHost() . "/v1/oauth/auth?" . $q;
     }
 }
