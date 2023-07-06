@@ -6,14 +6,13 @@ use Stan\Configuration;
 use Stan\ApiException;
 use Stan\ObjectSerializer;
 
-use Http\Client\Common\Plugin\ErrorPlugin;
-use Http\Client\Common\PluginClient;
 use Http\Client\HttpClient;
 use Http\Client\Exception\NetworkException;
+use Http\Discovery\Psr18Client;
 use Http\Discovery\Psr18ClientDiscovery;
+use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Discovery\MessageFactoryDiscovery;
 use Http\Client\Exception;
-use Http\Discovery\UriFactoryDiscovery;
 use Http\Message\Authentication;
 use Http\Message\Authentication\BasicAuth;
 use Http\Message\Authentication\Bearer;
@@ -107,7 +106,9 @@ class StanClient
 
         $this->httpClient = $this->getDefaultHttpClient();
         $this->requestFactory = MessageFactoryDiscovery::find();
-        $this->uriFactory = UriFactoryDiscovery::find();
+        // FIX: the factory returned by Psr17FactoryDiscovery::findRequestFactory() makes the custom headers fail
+        // $this->requestFactory = Psr17FactoryDiscovery::findRequestFactory();
+        $this->uriFactory = Psr17FactoryDiscovery::findUriFactory();
     }
 
     /**
@@ -285,9 +286,6 @@ class StanClient
      */
     private function getDefaultHttpClient()
     {
-        return new PluginClient(
-            Psr18ClientDiscovery::find(),
-            [new ErrorPlugin()]
-        );
+        return new Psr18Client();
     }
 }
