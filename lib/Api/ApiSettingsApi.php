@@ -31,20 +31,6 @@ use Stan\ApiException;
 use Stan\Configuration;
 use Stan\HeaderSelector;
 
-use Http\Client\Common\Plugin\ErrorPlugin;
-use Http\Client\Common\PluginClient;
-use Http\Client\HttpClient;
-use Http\Discovery\HttpClientDiscovery;
-use Http\Discovery\MessageFactoryDiscovery;
-use Http\Discovery\UriFactoryDiscovery;
-use Http\Message\RequestFactory;
-use Http\Message\UriFactory;
-use Psr\Http\Client\ClientExceptionInterface;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\UriInterface;
-
-
 /**
  * ApiSettings Class Doc Comment
  *

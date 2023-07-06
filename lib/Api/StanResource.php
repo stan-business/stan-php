@@ -2,8 +2,6 @@
 
 namespace Stan\Api;
 
-use Http\Client\HttpClient;
-
 abstract class StanResource
 {
     /**
