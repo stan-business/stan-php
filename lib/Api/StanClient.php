@@ -10,7 +10,7 @@ use Http\Client\Common\Plugin\ErrorPlugin;
 use Http\Client\Common\PluginClient;
 use Http\Client\HttpClient;
 use Http\Client\Exception\NetworkException;
-use Http\Discovery\HttpClientDiscovery;
+use Http\Discovery\Psr18ClientDiscovery;
 use Http\Discovery\MessageFactoryDiscovery;
 use Http\Client\Exception;
 use Http\Discovery\UriFactoryDiscovery;
@@ -286,7 +286,7 @@ class StanClient
     private function getDefaultHttpClient()
     {
         return new PluginClient(
-            HttpClientDiscovery::find(),
+            Psr18ClientDiscovery::find(),
             [new ErrorPlugin()]
         );
     }
