@@ -8,7 +8,6 @@ use Stan\ObjectSerializer;
 
 use Http\Client\HttpClient;
 use Http\Client\Exception\NetworkException;
-use Http\Discovery\Psr18Client;
 use Http\Discovery\Psr18ClientDiscovery;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Discovery\MessageFactoryDiscovery;
@@ -286,6 +285,6 @@ class StanClient
      */
     private function getDefaultHttpClient()
     {
-        return new Psr18Client();
+        return Psr18ClientDiscovery::find();
     }
 }
