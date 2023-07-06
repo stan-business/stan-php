@@ -24,20 +24,28 @@
         "ext-mbstring": "*",
         "php-http/httplug": "^2.3",
         "psr/http-message": "^1.0",
-        "php-http/message": "^1.13",
-        "php-http/discovery": "^1.14",
-        "php-http/client-common": "^2.5"
+        "php-http/discovery": "^1.19",
+        "psr/http-factory": "^1.0",
+        "psr/http-client-implementation": "^1.0",
+        "psr/http-factory-implementation": "*",
+        "http-interop/http-factory-guzzle": "^1.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0 || ^9.0",
         "friendsofphp/php-cs-fixer": "^2.12",
         "php-http/mock-client": "^1.5",
-        "php-http/guzzle6-adapter": "^2.0"
+        "php-http/guzzle6-adapter": "^2.0",
+        "php-http/message": "^1.14"
     },
     "autoload": {
         "psr-4": { "Stan\\" : "lib/" }
     },
     "autoload-dev": {
         "psr-4": { "Stan\\Test\\" : "test/" }
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": false
+        }
     }
 }
