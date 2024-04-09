@@ -1,6 +1,6 @@
 <?php
 /**
- * User
+ * LineItem
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Stan\ObjectSerializer;
 
 /**
- * User Class Doc Comment
+ * LineItem Class Doc Comment
  *
  * @category Class
  * @package  Stan
@@ -42,7 +42,7 @@ use \Stan\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class User implements ModelInterface, ArrayAccess, \JsonSerializable
+class LineItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'User';
+    protected static $openAPIModelName = 'LineItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,14 +59,14 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'oauth_connect_id' => 'string',
-        'sub' => 'string',
-        'given_name' => 'string',
-        'family_name' => 'string',
-        'email' => 'string',
-        'phone' => 'string',
-        'preferred_username' => 'string',
-        'shipping_address' => '\Stan\Model\Address'
+        'product_id' => 'string',
+        'quantity' => 'int',
+        'unit_price' => 'int',
+        'discount_amount' => 'int',
+        'description' => 'string',
+        'sku' => 'string',
+        'image_url' => 'string',
+        'product_url' => 'string'
     ];
 
     /**
@@ -77,14 +77,14 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'oauth_connect_id' => 'uuid',
-        'sub' => null,
-        'given_name' => null,
-        'family_name' => null,
-        'email' => null,
-        'phone' => null,
-        'preferred_username' => null,
-        'shipping_address' => null
+        'product_id' => null,
+        'quantity' => null,
+        'unit_price' => null,
+        'discount_amount' => null,
+        'description' => null,
+        'sku' => null,
+        'image_url' => 'uri',
+        'product_url' => 'uri'
     ];
 
     /**
@@ -114,14 +114,14 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'oauth_connect_id' => 'oauth_connect_id',
-        'sub' => 'sub',
-        'given_name' => 'given_name',
-        'family_name' => 'family_name',
-        'email' => 'email',
-        'phone' => 'phone',
-        'preferred_username' => 'preferred_username',
-        'shipping_address' => 'shipping_address'
+        'product_id' => 'product_id',
+        'quantity' => 'quantity',
+        'unit_price' => 'unit_price',
+        'discount_amount' => 'discount_amount',
+        'description' => 'description',
+        'sku' => 'sku',
+        'image_url' => 'image_url',
+        'product_url' => 'product_url'
     ];
 
     /**
@@ -130,14 +130,14 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'oauth_connect_id' => 'setOauthConnectId',
-        'sub' => 'setSub',
-        'given_name' => 'setGivenName',
-        'family_name' => 'setFamilyName',
-        'email' => 'setEmail',
-        'phone' => 'setPhone',
-        'preferred_username' => 'setPreferredUsername',
-        'shipping_address' => 'setShippingAddress'
+        'product_id' => 'setProductId',
+        'quantity' => 'setQuantity',
+        'unit_price' => 'setUnitPrice',
+        'discount_amount' => 'setDiscountAmount',
+        'description' => 'setDescription',
+        'sku' => 'setSku',
+        'image_url' => 'setImageUrl',
+        'product_url' => 'setProductUrl'
     ];
 
     /**
@@ -146,14 +146,14 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'oauth_connect_id' => 'getOauthConnectId',
-        'sub' => 'getSub',
-        'given_name' => 'getGivenName',
-        'family_name' => 'getFamilyName',
-        'email' => 'getEmail',
-        'phone' => 'getPhone',
-        'preferred_username' => 'getPreferredUsername',
-        'shipping_address' => 'getShippingAddress'
+        'product_id' => 'getProductId',
+        'quantity' => 'getQuantity',
+        'unit_price' => 'getUnitPrice',
+        'discount_amount' => 'getDiscountAmount',
+        'description' => 'getDescription',
+        'sku' => 'getSku',
+        'image_url' => 'getImageUrl',
+        'product_url' => 'getProductUrl'
     ];
 
     /**
@@ -213,14 +213,14 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['oauth_connect_id'] = $data['oauth_connect_id'] ?? null;
-        $this->container['sub'] = $data['sub'] ?? null;
-        $this->container['given_name'] = $data['given_name'] ?? null;
-        $this->container['family_name'] = $data['family_name'] ?? null;
-        $this->container['email'] = $data['email'] ?? null;
-        $this->container['phone'] = $data['phone'] ?? null;
-        $this->container['preferred_username'] = $data['preferred_username'] ?? null;
-        $this->container['shipping_address'] = $data['shipping_address'] ?? null;
+        $this->container['product_id'] = $data['product_id'] ?? null;
+        $this->container['quantity'] = $data['quantity'] ?? null;
+        $this->container['unit_price'] = $data['unit_price'] ?? null;
+        $this->container['discount_amount'] = $data['discount_amount'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
+        $this->container['sku'] = $data['sku'] ?? null;
+        $this->container['image_url'] = $data['image_url'] ?? null;
+        $this->container['product_url'] = $data['product_url'] ?? null;
     }
 
     /**
@@ -248,193 +248,193 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets oauth_connect_id
+     * Gets product_id
      *
      * @return string|null
      */
-    public function getOauthConnectId()
+    public function getProductId()
     {
-        return $this->container['oauth_connect_id'];
+        return $this->container['product_id'];
     }
 
     /**
-     * Sets oauth_connect_id
+     * Sets product_id
      *
-     * @param string|null $oauth_connect_id ID of the connection
+     * @param string|null $product_id product_id
      *
      * @return self
      */
-    public function setOauthConnectId($oauth_connect_id)
+    public function setProductId($product_id)
     {
-        $this->container['oauth_connect_id'] = $oauth_connect_id;
+        $this->container['product_id'] = $product_id;
 
         return $this;
     }
 
     /**
-     * Gets sub
+     * Gets quantity
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getSub()
+    public function getQuantity()
     {
-        return $this->container['sub'];
+        return $this->container['quantity'];
     }
 
     /**
-     * Sets sub
+     * Sets quantity
      *
-     * @param string|null $sub Token ID
+     * @param int|null $quantity quantity
      *
      * @return self
      */
-    public function setSub($sub)
+    public function setQuantity($quantity)
     {
-        $this->container['sub'] = $sub;
+        $this->container['quantity'] = $quantity;
 
         return $this;
     }
 
     /**
-     * Gets given_name
+     * Gets unit_price
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getGivenName()
+    public function getUnitPrice()
     {
-        return $this->container['given_name'];
+        return $this->container['unit_price'];
     }
 
     /**
-     * Sets given_name
+     * Sets unit_price
      *
-     * @param string|null $given_name given_name
+     * @param int|null $unit_price unit_price
      *
      * @return self
      */
-    public function setGivenName($given_name)
+    public function setUnitPrice($unit_price)
     {
-        $this->container['given_name'] = $given_name;
+        $this->container['unit_price'] = $unit_price;
 
         return $this;
     }
 
     /**
-     * Gets family_name
+     * Gets discount_amount
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getFamilyName()
+    public function getDiscountAmount()
     {
-        return $this->container['family_name'];
+        return $this->container['discount_amount'];
     }
 
     /**
-     * Sets family_name
+     * Sets discount_amount
      *
-     * @param string|null $family_name family_name
+     * @param int|null $discount_amount discount_amount
      *
      * @return self
      */
-    public function setFamilyName($family_name)
+    public function setDiscountAmount($discount_amount)
     {
-        $this->container['family_name'] = $family_name;
+        $this->container['discount_amount'] = $discount_amount;
 
         return $this;
     }
 
     /**
-     * Gets email
+     * Gets description
      *
      * @return string|null
      */
-    public function getEmail()
+    public function getDescription()
     {
-        return $this->container['email'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets email
+     * Sets description
      *
-     * @param string|null $email email
+     * @param string|null $description description
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setDescription($description)
     {
-        $this->container['email'] = $email;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets phone
+     * Gets sku
      *
      * @return string|null
      */
-    public function getPhone()
+    public function getSku()
     {
-        return $this->container['phone'];
+        return $this->container['sku'];
     }
 
     /**
-     * Sets phone
+     * Sets sku
      *
-     * @param string|null $phone phone
+     * @param string|null $sku sku
      *
      * @return self
      */
-    public function setPhone($phone)
+    public function setSku($sku)
     {
-        $this->container['phone'] = $phone;
+        $this->container['sku'] = $sku;
 
         return $this;
     }
 
     /**
-     * Gets preferred_username
+     * Gets image_url
      *
      * @return string|null
      */
-    public function getPreferredUsername()
+    public function getImageUrl()
     {
-        return $this->container['preferred_username'];
+        return $this->container['image_url'];
     }
 
     /**
-     * Sets preferred_username
+     * Sets image_url
      *
-     * @param string|null $preferred_username preferred_username
+     * @param string|null $image_url image_url
      *
      * @return self
      */
-    public function setPreferredUsername($preferred_username)
+    public function setImageUrl($image_url)
     {
-        $this->container['preferred_username'] = $preferred_username;
+        $this->container['image_url'] = $image_url;
 
         return $this;
     }
 
     /**
-     * Gets shipping_address
+     * Gets product_url
      *
-     * @return \Stan\Model\Address|null
+     * @return string|null
      */
-    public function getShippingAddress()
+    public function getProductUrl()
     {
-        return $this->container['shipping_address'];
+        return $this->container['product_url'];
     }
 
     /**
-     * Sets shipping_address
+     * Sets product_url
      *
-     * @param \Stan\Model\Address|null $shipping_address shipping_address
+     * @param string|null $product_url product_url
      *
      * @return self
      */
-    public function setShippingAddress($shipping_address)
+    public function setProductUrl($product_url)
     {
-        $this->container['shipping_address'] = $shipping_address;
+        $this->container['product_url'] = $product_url;
 
         return $this;
     }
