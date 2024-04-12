@@ -1,6 +1,6 @@
 <?php
 /**
- * ConnectAccessTokenRequestBody
+ * Merchant
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Stan\ObjectSerializer;
 
 /**
- * ConnectAccessTokenRequestBody Class Doc Comment
+ * Merchant Class Doc Comment
  *
  * @category Class
  * @package  Stan
@@ -42,7 +42,7 @@ use \Stan\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ConnectAccessTokenRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
+class Merchant implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class ConnectAccessTokenRequestBody implements ModelInterface, ArrayAccess, \Jso
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConnectAccessTokenRequestBody';
+    protected static $openAPIModelName = 'Merchant';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,12 +59,11 @@ class ConnectAccessTokenRequestBody implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'code' => 'string',
-        'client_id' => 'string',
-        'client_secret' => 'string',
-        'redirect_uri' => 'string',
-        'grant_type' => 'string',
-        'scope' => 'string'
+        'name' => 'string',
+        'website' => 'string',
+        'privacy_policy_url' => 'string',
+        'general_terms_url' => 'string',
+        'logo_url' => 'string'
     ];
 
     /**
@@ -75,12 +74,11 @@ class ConnectAccessTokenRequestBody implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'code' => 'uuid',
-        'client_id' => null,
-        'client_secret' => null,
-        'redirect_uri' => null,
-        'grant_type' => null,
-        'scope' => null
+        'name' => null,
+        'website' => null,
+        'privacy_policy_url' => 'uri',
+        'general_terms_url' => 'uri',
+        'logo_url' => 'uri'
     ];
 
     /**
@@ -110,12 +108,11 @@ class ConnectAccessTokenRequestBody implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'client_id' => 'client_id',
-        'client_secret' => 'client_secret',
-        'redirect_uri' => 'redirect_uri',
-        'grant_type' => 'grant_type',
-        'scope' => 'scope'
+        'name' => 'name',
+        'website' => 'website',
+        'privacy_policy_url' => 'privacy_policy_url',
+        'general_terms_url' => 'general_terms_url',
+        'logo_url' => 'logo_url'
     ];
 
     /**
@@ -124,12 +121,11 @@ class ConnectAccessTokenRequestBody implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'client_id' => 'setClientId',
-        'client_secret' => 'setClientSecret',
-        'redirect_uri' => 'setRedirectUri',
-        'grant_type' => 'setGrantType',
-        'scope' => 'setScope'
+        'name' => 'setName',
+        'website' => 'setWebsite',
+        'privacy_policy_url' => 'setPrivacyPolicyUrl',
+        'general_terms_url' => 'setGeneralTermsUrl',
+        'logo_url' => 'setLogoUrl'
     ];
 
     /**
@@ -138,12 +134,11 @@ class ConnectAccessTokenRequestBody implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'client_id' => 'getClientId',
-        'client_secret' => 'getClientSecret',
-        'redirect_uri' => 'getRedirectUri',
-        'grant_type' => 'getGrantType',
-        'scope' => 'getScope'
+        'name' => 'getName',
+        'website' => 'getWebsite',
+        'privacy_policy_url' => 'getPrivacyPolicyUrl',
+        'general_terms_url' => 'getGeneralTermsUrl',
+        'logo_url' => 'getLogoUrl'
     ];
 
     /**
@@ -203,12 +198,11 @@ class ConnectAccessTokenRequestBody implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = $data['code'] ?? null;
-        $this->container['client_id'] = $data['client_id'] ?? null;
-        $this->container['client_secret'] = $data['client_secret'] ?? null;
-        $this->container['redirect_uri'] = $data['redirect_uri'] ?? null;
-        $this->container['grant_type'] = $data['grant_type'] ?? null;
-        $this->container['scope'] = $data['scope'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['website'] = $data['website'] ?? null;
+        $this->container['privacy_policy_url'] = $data['privacy_policy_url'] ?? null;
+        $this->container['general_terms_url'] = $data['general_terms_url'] ?? null;
+        $this->container['logo_url'] = $data['logo_url'] ?? null;
     }
 
     /**
@@ -236,145 +230,121 @@ class ConnectAccessTokenRequestBody implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets code
+     * Gets name
      *
      * @return string|null
      */
-    public function getCode()
+    public function getName()
     {
-        return $this->container['code'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets code
+     * Sets name
      *
-     * @param string|null $code The code received from authorization request
+     * @param string|null $name name
      *
      * @return self
      */
-    public function setCode($code)
+    public function setName($name)
     {
-        $this->container['code'] = $code;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets client_id
+     * Gets website
      *
      * @return string|null
      */
-    public function getClientId()
+    public function getWebsite()
     {
-        return $this->container['client_id'];
+        return $this->container['website'];
     }
 
     /**
-     * Sets client_id
+     * Sets website
      *
-     * @param string|null $client_id Your Stan Connect client ID, find it in your Dashboard
+     * @param string|null $website website
      *
      * @return self
      */
-    public function setClientId($client_id)
+    public function setWebsite($website)
     {
-        $this->container['client_id'] = $client_id;
+        $this->container['website'] = $website;
 
         return $this;
     }
 
     /**
-     * Gets client_secret
+     * Gets privacy_policy_url
      *
      * @return string|null
      */
-    public function getClientSecret()
+    public function getPrivacyPolicyUrl()
     {
-        return $this->container['client_secret'];
+        return $this->container['privacy_policy_url'];
     }
 
     /**
-     * Sets client_secret
+     * Sets privacy_policy_url
      *
-     * @param string|null $client_secret Your Stan Connect client secret, find it in your Dashboard
+     * @param string|null $privacy_policy_url privacy_policy_url
      *
      * @return self
      */
-    public function setClientSecret($client_secret)
+    public function setPrivacyPolicyUrl($privacy_policy_url)
     {
-        $this->container['client_secret'] = $client_secret;
+        $this->container['privacy_policy_url'] = $privacy_policy_url;
 
         return $this;
     }
 
     /**
-     * Gets redirect_uri
+     * Gets general_terms_url
      *
      * @return string|null
      */
-    public function getRedirectUri()
+    public function getGeneralTermsUrl()
     {
-        return $this->container['redirect_uri'];
+        return $this->container['general_terms_url'];
     }
 
     /**
-     * Sets redirect_uri
+     * Sets general_terms_url
      *
-     * @param string|null $redirect_uri The URI you provided when you requested authorization
+     * @param string|null $general_terms_url general_terms_url
      *
      * @return self
      */
-    public function setRedirectUri($redirect_uri)
+    public function setGeneralTermsUrl($general_terms_url)
     {
-        $this->container['redirect_uri'] = $redirect_uri;
+        $this->container['general_terms_url'] = $general_terms_url;
 
         return $this;
     }
 
     /**
-     * Gets grant_type
+     * Gets logo_url
      *
      * @return string|null
      */
-    public function getGrantType()
+    public function getLogoUrl()
     {
-        return $this->container['grant_type'];
+        return $this->container['logo_url'];
     }
 
     /**
-     * Sets grant_type
+     * Sets logo_url
      *
-     * @param string|null $grant_type The authorization mecanism, since you provided a code, put authorization_code
+     * @param string|null $logo_url logo_url
      *
      * @return self
      */
-    public function setGrantType($grant_type)
+    public function setLogoUrl($logo_url)
     {
-        $this->container['grant_type'] = $grant_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets scope
-     *
-     * @return string|null
-     */
-    public function getScope()
-    {
-        return $this->container['scope'];
-    }
-
-    /**
-     * Sets scope
-     *
-     * @param string|null $scope The user's information you will be using. You must set the same scope provided in authorization request. Separate scopes with \" \"
-     *
-     * @return self
-     */
-    public function setScope($scope)
-    {
-        $this->container['scope'] = $scope;
+        $this->container['logo_url'] = $logo_url;
 
         return $this;
     }

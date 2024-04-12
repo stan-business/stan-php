@@ -59,8 +59,7 @@ class ApiSettingsRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payment_webhook_url' => 'string',
-        'oauth_redirect_url' => 'string'
+        'webhook_url' => 'string'
     ];
 
     /**
@@ -71,8 +70,7 @@ class ApiSettingsRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'payment_webhook_url' => 'uri',
-        'oauth_redirect_url' => 'uri'
+        'webhook_url' => 'uri'
     ];
 
     /**
@@ -102,8 +100,7 @@ class ApiSettingsRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'payment_webhook_url' => 'payment_webhook_url',
-        'oauth_redirect_url' => 'oauth_redirect_url'
+        'webhook_url' => 'webhook_url'
     ];
 
     /**
@@ -112,8 +109,7 @@ class ApiSettingsRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'payment_webhook_url' => 'setPaymentWebhookUrl',
-        'oauth_redirect_url' => 'setOauthRedirectUrl'
+        'webhook_url' => 'setWebhookUrl'
     ];
 
     /**
@@ -122,8 +118,7 @@ class ApiSettingsRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'payment_webhook_url' => 'getPaymentWebhookUrl',
-        'oauth_redirect_url' => 'getOauthRedirectUrl'
+        'webhook_url' => 'getWebhookUrl'
     ];
 
     /**
@@ -183,8 +178,7 @@ class ApiSettingsRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['payment_webhook_url'] = $data['payment_webhook_url'] ?? null;
-        $this->container['oauth_redirect_url'] = $data['oauth_redirect_url'] ?? null;
+        $this->container['webhook_url'] = $data['webhook_url'] ?? null;
     }
 
     /**
@@ -212,49 +206,25 @@ class ApiSettingsRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets payment_webhook_url
+     * Gets webhook_url
      *
      * @return string|null
      */
-    public function getPaymentWebhookUrl()
+    public function getWebhookUrl()
     {
-        return $this->container['payment_webhook_url'];
+        return $this->container['webhook_url'];
     }
 
     /**
-     * Sets payment_webhook_url
+     * Sets webhook_url
      *
-     * @param string|null $payment_webhook_url Payment webhook to be notified when a payment status is updated. Use this to update your order status when a payment has been made
+     * @param string|null $webhook_url Payment webhook to be notified when a payment status is updated. Use this to update your order status when a payment has been made
      *
      * @return self
      */
-    public function setPaymentWebhookUrl($payment_webhook_url)
+    public function setWebhookUrl($webhook_url)
     {
-        $this->container['payment_webhook_url'] = $payment_webhook_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets oauth_redirect_url
-     *
-     * @return string|null
-     */
-    public function getOauthRedirectUrl()
-    {
-        return $this->container['oauth_redirect_url'];
-    }
-
-    /**
-     * Sets oauth_redirect_url
-     *
-     * @param string|null $oauth_redirect_url Login redirection for Stan Connect
-     *
-     * @return self
-     */
-    public function setOauthRedirectUrl($oauth_redirect_url)
-    {
-        $this->container['oauth_redirect_url'] = $oauth_redirect_url;
+        $this->container['webhook_url'] = $webhook_url;
 
         return $this;
     }
