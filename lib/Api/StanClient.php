@@ -99,6 +99,7 @@ class StanClient
         $this->connectApi = new ConnectApi($this);
         $this->customerApi = new CustomerApi($this);
         $this->paymentApi = new PaymentApi($this);
+        $this->checkoutApi = new CheckoutApi($this);
         $this->refundApi = new RefundApi($this);
         $this->userApi = new UserApi($this);
 
