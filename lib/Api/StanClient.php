@@ -65,6 +65,10 @@ class StanClient
      */
     public $paymentApi;
     /**
+     * @var CheckoutApi
+     */
+    public $checkoutApi;
+    /**
      * @var RefundApi
      */
     public $refundApi;

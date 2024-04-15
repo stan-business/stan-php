@@ -34,7 +34,7 @@ use Stan\ObjectSerializer;
  * @author   Brightweb
  * @link     https://stan-business.fr
  */
-class CheckoutApi
+class CheckoutApi extends StanResource
 {
     /**
      * Operation updateApiSettings
