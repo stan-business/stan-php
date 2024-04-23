@@ -6,8 +6,8 @@
  *
  * @category Class
  * @package  Stan
- * @author   Brightweb
- * @link     https://stan-business.fr
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -36,8 +36,8 @@ use \Stan\ObjectSerializer;
  *
  * @category Class
  * @package  Stan
- * @author   Brightweb
- * @link     https://stan-business.fr
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
@@ -70,7 +70,8 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
         'line_items' => '\Stan\Model\LineItem[]',
         'merchant' => '\Stan\Model\Merchant',
         'session_id' => 'string',
-        'order_id' => 'string'
+        'order_id' => 'string',
+        'checkout_url' => 'string'
     ];
 
     /**
@@ -92,7 +93,8 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
         'line_items' => null,
         'merchant' => null,
         'session_id' => null,
-        'order_id' => null
+        'order_id' => null,
+        'checkout_url' => null
     ];
 
     /**
@@ -133,7 +135,8 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
         'line_items' => 'line_items',
         'merchant' => 'merchant',
         'session_id' => 'session_id',
-        'order_id' => 'order_id'
+        'order_id' => 'order_id',
+        'checkout_url' => 'checkout_url'
     ];
 
     /**
@@ -153,7 +156,8 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
         'line_items' => 'setLineItems',
         'merchant' => 'setMerchant',
         'session_id' => 'setSessionId',
-        'order_id' => 'setOrderId'
+        'order_id' => 'setOrderId',
+        'checkout_url' => 'setCheckoutUrl'
     ];
 
     /**
@@ -173,7 +177,8 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
         'line_items' => 'getLineItems',
         'merchant' => 'getMerchant',
         'session_id' => 'getSessionId',
-        'order_id' => 'getOrderId'
+        'order_id' => 'getOrderId',
+        'checkout_url' => 'getCheckoutUrl'
     ];
 
     /**
@@ -245,6 +250,7 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['merchant'] = $data['merchant'] ?? null;
         $this->container['session_id'] = $data['session_id'] ?? null;
         $this->container['order_id'] = $data['order_id'] ?? null;
+        $this->container['checkout_url'] = $data['checkout_url'] ?? null;
     }
 
     /**
@@ -558,6 +564,30 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
+
+    /**
+     * Gets checkout_url
+     *
+     * @return string|null
+     */
+    public function getCheckoutUrl()
+    {
+        return $this->container['checkout_url'];
+    }
+
+    /**
+     * Sets checkout_url
+     *
+     * @param string|null $checkout_url Checkout URL
+     *
+     * @return self
+     */
+    public function setCheckoutUrl($checkout_url)
+    {
+        $this->container['checkout_url'] = $checkout_url;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -646,5 +676,3 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-
