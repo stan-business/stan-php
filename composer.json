@@ -22,19 +22,19 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "php-http/httplug": "^2.3",
-        "psr/http-message": "^1.1",
-        "php-http/discovery": "^1.19",
         "psr/http-client-implementation": "*",
         "psr/http-factory-implementation": "*",
-        "http-interop/http-factory-guzzle": "^1.2"
+        "http-interop/http-factory-guzzle": "^1.2",
+        "php-http/discovery": "^1.17"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0 || ^9.0",
         "friendsofphp/php-cs-fixer": "^2.12",
         "php-http/mock-client": "^1.5",
-        "guzzlehttp/psr7": "^1.9",
-        "psr/http-message": "^1.1"
+        "php-http/guzzle6-adapter": "^2.0",
+        "php-http/message": "^1.14",
+        "symfony/http-client": "^5.4",
+        "nyholm/psr7": "^1.8"
     },
     "autoload": {
         "psr-4": { "Stan\\" : "lib/" }

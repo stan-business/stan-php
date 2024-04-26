@@ -63,6 +63,10 @@ class StanClient
      */
     public $paymentApi;
     /**
+     * @var CheckoutApi
+     */
+    public $checkoutApi;
+    /**
      * @var RefundApi
      */
     public $refundApi;
@@ -97,6 +101,7 @@ class StanClient
         $this->connectApi = new ConnectApi($this);
         $this->customerApi = new CustomerApi($this);
         $this->paymentApi = new PaymentApi($this);
+        $this->checkoutApi = new CheckoutApi($this);
         $this->refundApi = new RefundApi($this);
         $this->userApi = new UserApi($this);
 
@@ -209,8 +214,8 @@ class StanClient
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody()->getContents() : null
+                    null,
+                    null
                 );
             } 
 
