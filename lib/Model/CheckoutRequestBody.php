@@ -62,6 +62,7 @@ class CheckoutRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
         'return_url' => 'string',
         'total_amount' => 'int',
         'session_id' => 'string',
+        'customer_id' => 'Uuid',
         'order_id' => 'string',
         'subtotal_amount' => 'int',
         'discount_amount' => 'int',
@@ -82,6 +83,7 @@ class CheckoutRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
         'return_url' => 'uri',
         'total_amount' => 'int64',
         'session_id' => null,
+        'customer_id' => null,
         'order_id' => null,
         'subtotal_amount' => 'int64',
         'discount_amount' => 'int64',
@@ -121,6 +123,7 @@ class CheckoutRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
         'return_url' => 'return_url',
         'total_amount' => 'total_amount',
         'session_id' => 'session_id',
+        'customer_id' => 'customer_id',
         'order_id' => 'order_id',
         'subtotal_amount' => 'subtotal_amount',
         'discount_amount' => 'discount_amount',
@@ -139,6 +142,7 @@ class CheckoutRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
         'return_url' => 'setReturnUrl',
         'total_amount' => 'setTotalAmount',
         'session_id' => 'setSessionId',
+        'customer_id' => 'setCustomerId',
         'order_id' => 'setOrderId',
         'subtotal_amount' => 'setSubtotalAmount',
         'discount_amount' => 'setDiscountAmount',
@@ -157,6 +161,7 @@ class CheckoutRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
         'return_url' => 'getReturnUrl',
         'total_amount' => 'getTotalAmount',
         'session_id' => 'getSessionId',
+        'customer_id' => 'getCustomerId',
         'order_id' => 'getOrderId',
         'subtotal_amount' => 'getSubtotalAmount',
         'discount_amount' => 'getDiscountAmount',
@@ -226,6 +231,7 @@ class CheckoutRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['return_url'] = $data['return_url'] ?? null;
         $this->container['total_amount'] = $data['total_amount'] ?? null;
         $this->container['session_id'] = $data['session_id'] ?? null;
+        $this->container['customer_id'] = $data['customer_id'] ?? null;
         $this->container['order_id'] = $data['order_id'] ?? null;
         $this->container['subtotal_amount'] = $data['subtotal_amount'] ?? null;
         $this->container['discount_amount'] = $data['discount_amount'] ?? null;
@@ -331,6 +337,30 @@ class CheckoutRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
         return $this;
     }
 
+    /**
+     * Gets customer_id
+     *
+     * @return Uuid|null
+     */
+    public function getCustomerId()
+    {
+        return $this->container['customer_id'];
+    }
+
+    /**
+     * Sets customer_id
+     *
+     * @param Uuid|null $customer_id Customer tied to this checkout
+     *
+     * @return self
+     */
+    public function setCustomerId($customer_id)
+    {
+        $this->container['customer_id'] = $customer_id;
+
+        return $this;
+    }
+    
     /**
      * Gets order_id
      *
