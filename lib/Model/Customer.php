@@ -60,7 +60,8 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'name' => 'string',
+        'firstname' => 'string',
+        'lastname' => 'string',
         'email' => 'string',
         'phone_number' => 'string',
         'address' => '\Stan\Model\Address'
@@ -75,7 +76,8 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'id' => 'uuid',
-        'name' => null,
+        'firstname' => null,
+        'lastname' => null,
         'email' => 'email',
         'phone_number' => null,
         'address' => null
@@ -109,7 +111,8 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'name' => 'name',
+        'firstname' => 'firstname',
+        'lastname' => 'lastname',
         'email' => 'email',
         'phone_number' => 'phone_number',
         'address' => 'address'
@@ -122,7 +125,8 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName',
+        'firstname' => 'setFirstname',
+        'lastname' => 'setLastname',
         'email' => 'setEmail',
         'phone_number' => 'setPhoneNumber',
         'address' => 'setAddress'
@@ -135,7 +139,8 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName',
+        'firstname' => 'getFirstname',
+        'lastname' => 'getLastname',
         'email' => 'getEmail',
         'phone_number' => 'getPhoneNumber',
         'address' => 'getAddress'
@@ -199,7 +204,8 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['id'] = $data['id'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
+        $this->container['firstname'] = $data['firstname'] ?? null;
+        $this->container['lastname'] = $data['lastname'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
         $this->container['phone_number'] = $data['phone_number'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
@@ -254,29 +260,53 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets name
+     * Gets firstname
      *
      * @return string|null
      */
-    public function getName()
+    public function getFirstname()
     {
-        return $this->container['name'];
+        return $this->container['firstname'];
     }
 
     /**
-     * Sets name
+     * Sets firstname
      *
-     * @param string|null $name Customer fullname
+     * @param string|null $firstname Customer firstname
      *
      * @return self
      */
-    public function setName($name)
+    public function setFirstname($firstname)
     {
-        $this->container['name'] = $name;
+        $this->container['firstname'] = $firstname;
 
         return $this;
     }
 
+    /**
+     * Gets lastname
+     *
+     * @return string|null
+     */
+    public function getLastname()
+    {
+        return $this->container['lastname'];
+    }
+
+    /**
+     * Sets lastname
+     *
+     * @param string|null $lastname Customer lastname
+     *
+     * @return self
+     */
+    public function setLastname($lastname)
+    {
+        $this->container['lastname'] = $lastname;
+
+        return $this;
+    }
+    
     /**
      * Gets email
      *

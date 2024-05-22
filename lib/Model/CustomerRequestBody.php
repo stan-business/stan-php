@@ -59,7 +59,8 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
+        'firstname' => 'string',
+        'lastname' => 'string',
         'email' => 'string',
         'address' => '\Stan\Model\Address',
         'phone_number' => 'string'
@@ -73,7 +74,8 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
+        'firstname' => null,
+        'lastname' => null,
         'email' => 'email',
         'address' => null,
         'phone_number' => null
@@ -106,7 +108,8 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
+        'firstname' => 'firstname',
+        'lastname' => 'lastname',
         'email' => 'email',
         'address' => 'address',
         'phone_number' => 'phone_number'
@@ -118,7 +121,8 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
+        'firstname' => 'setFirstname',
+        'lastname' => 'setLastname',
         'email' => 'setEmail',
         'address' => 'setAddress',
         'phone_number' => 'setPhoneNumber'
@@ -130,7 +134,8 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
+        'firstname' => 'getFirstname',
+        'lastname' => 'getLastname',
         'email' => 'getEmail',
         'address' => 'getAddress',
         'phone_number' => 'getPhoneNumber'
@@ -193,7 +198,8 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = $data['name'] ?? null;
+        $this->container['firstname'] = $data['firstname'] ?? null;
+        $this->container['lastname'] = $data['lastname'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
         $this->container['phone_number'] = $data['phone_number'] ?? null;
@@ -208,14 +214,8 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         if ($this->container['email'] === null) {
             $invalidProperties[] = "'email' can't be null";
-        }
-        if ($this->container['address'] === null) {
-            $invalidProperties[] = "'address' can't be null";
         }
         return $invalidProperties;
     }
@@ -233,29 +233,53 @@ class CustomerRequestBody implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets name
+     * Gets firstname
      *
-     * @return string
+     * @return string|null
      */
-    public function getName()
+    public function getFirstname()
     {
-        return $this->container['name'];
+        return $this->container['firstname'];
     }
 
     /**
-     * Sets name
+     * Sets firstname
      *
-     * @param string $name Customer fullname
+     * @param string|null $firstname Customer firstname
      *
      * @return self
      */
-    public function setName($name)
+    public function setFirstname($firstname)
     {
-        $this->container['name'] = $name;
+        $this->container['firstname'] = $firstname;
 
         return $this;
     }
 
+    /**
+     * Gets lastname
+     *
+     * @return string|null
+     */
+    public function getLastname()
+    {
+        return $this->container['lastname'];
+    }
+
+    /**
+     * Sets lastname
+     *
+     * @param string|null $lastname Customer lastname
+     *
+     * @return self
+     */
+    public function setLastname($lastname)
+    {
+        $this->container['lastname'] = $lastname;
+
+        return $this;
+    }
+    
     /**
      * Gets email
      *
