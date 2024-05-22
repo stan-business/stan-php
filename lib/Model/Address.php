@@ -66,7 +66,8 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
         'locality' => 'string',
         'zip_code' => 'string',
         'country' => 'string',
-        'region' => 'string'
+        'region' => 'string',
+        'phone_number' => 'string'
     ];
 
     /**
@@ -84,7 +85,8 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
         'locality' => null,
         'zip_code' => null,
         'country' => null,
-        'region' => null
+        'region' => null,
+        'phone_number' => null
     ];
 
     /**
@@ -121,7 +123,8 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
         'locality' => 'locality',
         'zip_code' => 'zip_code',
         'country' => 'country',
-        'region' => 'region'
+        'region' => 'region',
+        'phone_number' => 'phone_number'
     ];
 
     /**
@@ -137,7 +140,8 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
         'locality' => 'setLocality',
         'zip_code' => 'setZipCode',
         'country' => 'setCountry',
-        'region' => 'setRegion'
+        'region' => 'setRegion',
+        'phone_number' => 'setPhoneNumber'
     ];
 
     /**
@@ -153,7 +157,8 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
         'locality' => 'getLocality',
         'zip_code' => 'getZipCode',
         'country' => 'getCountry',
-        'region' => 'getRegion'
+        'region' => 'getRegion',
+        'phone_number' => 'getPhoneNumber'
     ];
 
     /**
@@ -221,6 +226,7 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['zip_code'] = $data['zip_code'] ?? null;
         $this->container['country'] = $data['country'] ?? null;
         $this->container['region'] = $data['region'] ?? null;
+        $this->container['phone_number'] = $data['phone_number'] ?? null;
     }
 
     /**
@@ -435,6 +441,30 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRegion($region)
     {
         $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone_number
+     *
+     * @return string|null
+     */
+    public function getPhoneNumber()
+    {
+        return $this->container['phone_number'];
+    }
+
+    /**
+     * Sets phone_number
+     *
+     * @param string|null $phone_number phone_number
+     *
+     * @return self
+     */
+    public function setPhoneNumber($phone_number)
+    {
+        $this->container['phone_number'] = $phone_number;
 
         return $this;
     }
