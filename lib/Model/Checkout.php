@@ -71,6 +71,7 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant' => '\Stan\Model\Merchant',
         'session_id' => 'string',
         'order_id' => 'string',
+        'customer_id' => 'Uuid',
         'checkout_url' => 'string'
     ];
 
@@ -94,6 +95,7 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant' => null,
         'session_id' => null,
         'order_id' => null,
+        'customer_id' => null,
         'checkout_url' => null
     ];
 
@@ -136,6 +138,7 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant' => 'merchant',
         'session_id' => 'session_id',
         'order_id' => 'order_id',
+        'customer_id' => 'customer_id',
         'checkout_url' => 'checkout_url'
     ];
 
@@ -157,6 +160,7 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant' => 'setMerchant',
         'session_id' => 'setSessionId',
         'order_id' => 'setOrderId',
+        'customer_id' => 'setCustomerId',
         'checkout_url' => 'setCheckoutUrl'
     ];
 
@@ -178,6 +182,7 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant' => 'getMerchant',
         'session_id' => 'getSessionId',
         'order_id' => 'getOrderId',
+        'customer_id' => 'getCustomerId',
         'checkout_url' => 'getCheckoutUrl'
     ];
 
@@ -250,6 +255,7 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['merchant'] = $data['merchant'] ?? null;
         $this->container['session_id'] = $data['session_id'] ?? null;
         $this->container['order_id'] = $data['order_id'] ?? null;
+        $this->container['customer_id'] = $data['customer_id'] ?? null;
         $this->container['checkout_url'] = $data['checkout_url'] ?? null;
     }
 
@@ -565,6 +571,30 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
         return $this;
     }
 
+    /**
+     * Gets customer_id
+     *
+     * @return Uuid|null
+     */
+    public function getCustomerId()
+    {
+        return $this->container['customer_id'];
+    }
+
+    /**
+     * Sets customer_id
+     *
+     * @param Uuid|null $customer_id Customer tied to this checkout
+     *
+     * @return self
+     */
+    public function setCustomerId($customer_id)
+    {
+        $this->container['customer_id'] = $customer_id;
+
+        return $this;
+    }
+    
     /**
      * Gets checkout_url
      *
